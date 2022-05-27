@@ -1,0 +1,32 @@
+{
+  "Testimonials": [
+    {
+      "FileName": "lagan-airport-maintenance-testimonial",
+      "ImageDescription": "Lagan airport maintenance logo representing the origin of the testimonial",
+      "FullText": "dwddwwd",
+      "SmallText": "Thank you for delivering a 1st class service and working collectively with the Lagan site team to make this project a success",
+      "Name": "Kieran Mcilhatton - Director"
+    },
+    {
+      "FileName": "tarmac-testimonial",
+      "ImageDescription": "Tarmac logo which is the origin of the testimonial",
+      "FullText": "dwddwwd",
+      "SmallText": "It has been a pleasure working with you over the last 26 years and we look forward to many more.",
+      "Name": "John McConologue - Mobile Plant Manager"
+    },
+    {
+      "FileName": "colas-testimonial",
+      "ImageDescription": "Colas logo which is who the testimonial was written by",
+      "FullText": "dwddwwd",
+      "SmallText": "Thank you for a fantastic five-month project at Coningsby which was undertaken with the usual efficiency.",
+      "Name": "For and on behalf of Colas Ltd"
+    },
+    {
+      "FileName": "lagan-construction-group-testimonial",
+      "ImageDescription": "Lagan construction group logo which is who the testimonial was written by",
+      "FullText": "dwddwwd",
+      "SmallText": "Rory J Holbrook Ltd are a professional company with reliable people and equipment.",
+      "Name": "For and on behalf of Lagan Construction Group"
+    }
+  ]
+}

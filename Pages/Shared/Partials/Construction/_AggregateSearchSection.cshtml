@@ -1,0 +1,87 @@
+﻿@using RJHWebsite.Pages.Construction
+@using System.Configuration
+@model RJHWebsite.Pages.Construction.AggregatesModel
+<div class="col-12 aggregate-search-box-container">
+    <div class="aggregate-search-items-container">
+        <div class="aggregates-search-container aggregates-left-right-padding">
+            <form class="mb-0">
+                <input class="form-control d-inline-block" type="text" placeholder="Search for aggregates" id="aggregates-search-text" />
+                <button class="form-control btn btn-dark d-inline-block w-auto" id="aggregates-search-btn"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="aggregates-filter-container-container">
+            <div class="aggregates-filter-container aggregates-left-right-padding">
+                <p id="aggregates-filter-by-category" data-toggle="collapse" data-target="#aggregates-filters-mobile">Filter by category <i class="fas fa-sort-down pl-2 pr-2"></i></p>
+            </div>
+            <div id="aggregates-filters-mobile" class="collapse p-2 bg-white aggregates-left-right-padding">
+                <p class="d-inline">Filter by</p>
+                <select class="form-control aggregates-category-filter pl-2 d-inline w-auto" onchange="window.location.href='@ConfigurationManager.AppSettings["AggregateSupply"]#aggregate-scrollspy-' + $('#aggregates-mobile-category-select option:selected').attr('category');" id="aggregates-mobile-category-select">
+                    @foreach (var category in Model.AggregateCategories)
+                    {
+                        <option category="@category.AggregateCategorySelectorName">
+                            <p class="aggregate-filter-mobile-option">@category.AggregateCategoryFullName</p>
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="aggregates-main-container aggregates-left-right-padding">
+        <div class="aggregates-search-results-container">
+            <div class="">
+                <a class="btn btn-blue" id="back-to-all-aggregates"><p><i class="fas fa-arrow-left pr-2"></i>Back to All Aggregates</p></a>
+                <span class="d-inline-block pl-2"><p class="mb-0">Showing search result(s) for keyword(s) "<span id="search-result-keyword"></span>"</p></span>
+                <div class="aggregates-search-items-container mt-2">
+                </div>
+            </div>
+        </div>
+        <div class="aggregates-grid-container">
+            <div class="aggregates-filters">
+                <div class="aggregates-filters-sticky" id="aggregates-filters-sticky">
+                    @foreach (var category in Model.AggregateCategories)
+                    {
+                        string activeClass = category == Model.AggregateCategories[0] ? "active" : "";
+                        <a id="aggregates-@category.AggregateCategorySelectorName-btn" class="list-group-item list-group-item-action aggregate-filters-btn @activeClass" href="#aggregate-scrollspy-@category.AggregateCategorySelectorName"><p class="mb-0">@category.AggregateCategoryFullName</p></a>
+                    }
+                </div>
+            </div>
+            <div class="aggregates-main pb-5" id="aggregates-scroll-spy" data-spy="scroll" data-target="#aggregates-filters-sticky" data-offset="0">
+                @foreach (var category in Model.AggregateCategories)
+                {
+                    <div class="offset-scroll-spy-anchor" id="aggregate-scrollspy-@category.AggregateCategorySelectorName"></div>
+                    <div class="offset-scroll-link-anchor" id="aggregates-@category.AggregateCategorySelectorName"></div>
+                    <div class="row row-plr-0 aggregates-category-section aggregates-@category.AggregateCategorySelectorName aggregate-category-title">
+                        <div class="col-12">
+                            <h5 class="aggregate-section-title">@category.AggregateCategoryFullName</h5>
+                            <hr />
+                        </div>
+                        @foreach (var aggregate in Model.Aggregates.Where(r => r.Category == category.AggregateCategoryFullName).ToList())
+                        {
+                            var formattedAggregateImageName = aggregate.AggregateName.ToLower().Replace(" - bulk bag","").Replace(@" ", "-").Replace("/","-");
+                            var formattedUnderscoredAggregateName = aggregate.AggregateName.ToLower().Replace(" ", "_").Replace("/","_");
+                            <div class="col-xl-3 col-sm-4 col-6 aggregate-wrapper">
+                                <div class="aggregates-collapse-container">
+                                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel() {ImageClassName = "aggregates-collapse-img", ImageName = formattedAggregateImageName + "-sm", ImageDescription = aggregate.AggregateName+" Icon Image", IncludeOtherSizes = false}' />
+                                    <div class="aggregate-title-over-img">
+                                        <p>@aggregate.AggregateName.ToUpper()</p>
+                                    </div>
+                                    <div class="aggregates-overlay">
+                                        <p>
+                                            prices starting from <b>£@aggregate.StartingPrice</b> per @aggregate.QuantityUnit
+                                            <br>
+                                            <input type="number" value="1" class="aggregate-quantity quantity-input" name="aggregate-quantity" min="1" max="10000000">
+                                            @(aggregate.QuantityUnit)(s)
+                                        </p>
+                                        <button onclick="addEnquiryBtnClick(this)" aggregate-name="@formattedUnderscoredAggregateName" quantity-unit="@aggregate.QuantityUnit.Replace(" ","-")" class="btn-blue btn w-100 add-enquiry-btn text-center">
+                                            <p><i class="fas fa-plus pr-2 plus-btn-icon"></i><span class="add-to-enquiry-text">Add To Enquiry List </span></p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

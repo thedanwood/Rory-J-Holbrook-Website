@@ -1,0 +1,56 @@
+﻿@page "/material-removal"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.NavButtonNames = "construction-services-nav-btn,material-removal-services-nav-btn";
+    ViewBag.Title = "Material Removal Services";
+}
+@section head{
+    <meta name='description' content="Our muck away and site clearance services provide the capabilities to clear any muck or waste material from locations with ease and efficiency." />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="construction-site-clearance", ImageDescription = "Materials and aggregates being removed at site"}'/>
+<div class="page-name">
+    <h1>Material Removal Services</h1>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction</a></li>
+                        <li class="breadcrumb-item active"><a href="">Material Removal Services</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_muckawaytile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_siteclearancetile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See All Haulage Services"
+        })
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+   SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+   CurrentPage = "",
+   ParentPage = "construction",
+   CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+   Title = "See All Construction Services"
+})

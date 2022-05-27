@@ -1,0 +1,128 @@
+﻿@page "/road-haulage/grab-hire"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Grab Hire";
+    ViewBag.NavButtonNames = "haulage-services-nav-btn,grab-hire-nav-btn";
+}
+@section head{
+    <meta name='description' content="Our Grab Lorry Service is the ideal alternative to a skip. It' s a quick and cost effective way to dispose of large volumes of waste where site access is difficult and no machine is available to load." />
+    <meta name='keywords' content='8 wheeler, muckaway, aggregate, grab' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="grab-lorry-haulage", ImageDescription = "8 wheel grab lorry available for hire being loaded with type 1"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Grab Hire</h1>
+                <p class="img-overlay-text">
+                    Removing even the most inaccessible waste materials.
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=grab-hire" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Grab Hire Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="row">
+            <div class="left-right-padding">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["RoadHaulageServices"]">Road Haulage</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Grab Hire</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+                <div class="text-justify top-bottom-padding">
+                    <h1 class="body-title">Grab Hire</h1>
+                    <p>
+                        Our grab hire service provides a cost effective way of removing waste from a location or for delivering topsoil,
+                        <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> or sand to your premises.
+                        <br /><br />
+                        We offer a fast and effective grab hire service that can remove large volumes of waste material in areas 
+                        where access is limited, and site space is tight.
+                        With the grabs having driver operated self-loading capabilities there is no need for additional plant 
+                        and equipment on site. 
+                        <br /><br />
+                        With a maximum reach of 7 meters the clam shell bucket and telescopic arm allow the grab to remove waste 
+                        material even when there are obstacles in its way making any <a href="@ConfigurationManager.AppSettings["MaterialRemovalServices"]">waste removal</a> simple and cost effective. 
+                        Furthermore, these capabilities enable us to deliver primary and recycled aggregates to where to customer 
+                        requires it with the ability to deliver multiple materials in one visit. 
+                        <br /><br />
+                    </p>
+                    <h2 class="body-title">Grab Capabilities</h2>
+                    <div class="row row-plr-0">
+                        <div class="col-lg-6 col-12 mb-lg-0 mb-2">
+                            <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100",ImageName="grab-hire-loading-lakenheath", ImageDescription = "Excavator loading muckaway", IncludeOtherSizes = false}'/>
+                        </div>
+                        <div class="col-lg-6 col-12 pl-lg-3">
+                            <p>
+                                All our grab lorries are 8 wheeler euro 7 emission standard vehicles, each able to carry 16 tonnes per 
+                                load and cover all areas of <a href="@ConfigurationManager.AppSettings["Locations"]">Norfolk</a>, Suffolk, Cambridgeshire, Northamptonshire, Bedfordshire and Essex. 
+                                <br /><br />
+                                Hiring a grab lorry offers many benefits over that of a skip or a tipper lorry:
+                                <br /><br />
+                            </p>
+                            <ul class="centered-list">
+                                <li>
+                                    <p>Two Skips is the equivalent to one 8 wheel Grab Lorry collection.</p>
+                                </li>
+                                <li>
+                                    <p>Saves times and money filling a skip, the lorry does the work for you.</p>
+                                </li>
+                                <li>
+                                    <p>No need to have large excavators and loaders on site, as the driver <br />can load the lorry via the attached grab.</p>
+                                </li>
+                                <li>
+                                    <p>Materials can be grabbed over Walls/Hedges into tricky places a<br />normal tipper cannot reach.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 class="body-title mt-4">Related Services</h2>
+                    <div class="related-pages-tiles-container">
+                        <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+                        <partial name="partials/construction/_muckawaytile" model="(int)TileStyles.SquareDiagonal"/>
+                        <partial name="partials/construction/_siteclearancetile" model="(int)TileStyles.SquareDiagonal"/>
+                        <partial name="partials/construction/_bulkearthworkstile" model="(int)TileStyles.SquareDiagonal"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "grabhire",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "Other Haulage Servics"
+        })
+    </div>
+</div>
+@await Component.InvokeAsync("TestimonialsSnippet", new
+{
+    snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    variationEnum = (int)Enums.Variations.Variation3,
+    cssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightBlue,
+    Title = "We Also Offer Construction Services"
+})
+
+@section scripts {
+
+    <script>
+        $('#road-and-rail-haulage-nav-btn').css('color', 'black').css('font-weight', 'bold');
+        $('#grab-hire-nav-btn').css('color', '#4e8dcc').css('font-weight', 'bold');
+    </script>
+}

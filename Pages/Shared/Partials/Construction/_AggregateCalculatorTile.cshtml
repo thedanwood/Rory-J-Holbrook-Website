@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "aggregate-calculator",
+    ImageDescription = "",
+    Title = "Aggregate Calculator",
+    ButtonText = "Aggregate Calculator",
+    ButtonLink = ConfigurationManager.AppSettings["AggregateCalculator"],
+    TileStyleEnum = Model,
+})

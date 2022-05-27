@@ -1,0 +1,223 @@
+﻿@page "/"
+@using RJHWebsite.Enums
+@using System.Configuration
+@using RJHWebsite.Pages.Shared.Components.AggregateAdvertSnippet
+﻿@{
+    ViewBag.Title = "Aggregates - Haulage - Tipper & Grab Hire";
+    ViewBag.NavButtonNames = "home-nav-btn";
+}
+<meta name='description' content='Rory J Holbrook Ltd are top suppliers of haulage across the UK, supplying all types of aggregates and specialising in waste movements. Contact us to find out more.' />
+<meta name='keywords' content='tipper hire, 8 wheeler, aggregates, muckaway, artic, sand, stone, bulker' />
+@*slideshow*@
+<div id="home-page-carousel-container" class="video-container">
+    <div id="home-page-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="video-container">
+                    <iframe class="video" src="https://player.vimeo.com/video/678293272?h=91e4830cc5&amp;autoplay=1&amp;player_id=0&amp;quality=1080px&amp;app_id=58479&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay" title="haulage-tipper-rory-holbrook.mp4" id="rail-haulage-video"></iframe>
+                    <div class="v-center-outer background-gradient">
+                        <div class="v-center-middle ml-img-overlay">
+                            <div class="v-center-inner ">
+                                <h1 class="img-overlay-title">Haulage Specialists</h1>
+                                <p class="img-overlay-text">Rory J Holbrook Ltd is number 1 for Haulage in Norfolk, Suffolk and across the UK.</p>
+                                <a href="@ConfigurationManager.AppSettings["HaulageServices"]" class="btn btn-blue img-overlay-btn">See Our Haulage Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="carousel-item">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "carousel-item-img",ImageName="aggregate-supplied-at-site", ImageDescription = "Norfolk site with aggregates on display"}'/>
+                    <div class="v-center-outer background-gradient">
+                    <div class="v-center-middle ml-img-overlay">
+                        <div class="v-center-inner ">
+                            <h1 class="img-overlay-title">Aggregates</h1>
+                            <p class="img-overlay-text">The producers of over 250,000 tonnes of the finest quality aggregates.</p>
+                            <a href="@ConfigurationManager.AppSettings["AggregateSupply"]" class="btn btn-blue img-overlay-btn">Explore Our Aggregates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "carousel-item-img",ImageName="lakenheath-haulage-transporting", ImageDescription = "Aggregate supplies being collected for recycling at a site in Norfolk"}'/>
+                    <div class="v-center-outer background-gradient">
+                    <div class="v-center-middle ml-img-overlay">
+                        <div class="v-center-inner ">
+                            <h1 class="img-overlay-title">Rory J Holbrook Ltd</h1>
+                            <p class="img-overlay-text">Is number 1 for haulage in Norfolk, Suffolk and accross the UK</p>
+                            <a href="@ConfigurationManager.AppSettings["HaulageServices"]" class="btn btn-blue img-overlay-btn">See Our Haulage Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "carousel-item-img",ImageName="all-rory-lorries", ImageDescription = "Fleet of some of the lorries working for Rory"}'/>
+                    <div class="v-center-outer background-gradient">
+                    <div class="v-center-middle ml-img-overlay">
+                        <div class="v-center-inner ">
+                            <h1 class="img-overlay-title">Tipper Hire</h1>
+                            <p class="img-overlay-text">Rory J Holbrook ltd continues to innovate the haulage and tipper hire industry since 1988</p>
+                            <a href="@ConfigurationManager.AppSettings["TipperHire"]" class="btn btn-blue img-overlay-btn">View Our Tipper Hire Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#home-page-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#home-page-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+@*Construction services*@
+<div class="home-services-tiles-row">
+    <partial name="partials/construction/_muckawaytile" model="(int)TileStyles.SquareDiagonal"/>
+    <partial name="partials/construction/_bulkearthworkstile" model="(int)TileStyles.SquareDiagonal"/>
+    <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+    <partial name="partials/haulage/_railheadstile" model="(int)TileStyles.SquareDiagonal"/>
+</div>
+<div class="home-services-tiles-row">
+    <partial name="partials/construction/_materialrecyclingtile" model="(int)TileStyles.SquareDiagonal"/>
+    <partial name="partials/haulage/_grabhiretile" model="(int)TileStyles.SquareDiagonal"/>
+    <partial name="partials/construction/_siteclearancetile" model="(int)TileStyles.SquareDiagonal"/>
+    <partial name="partials/haulage/_nontippingconveyorfloortile" model="(int)TileStyles.SquareDiagonal"/>
+</div>
+@*30 years of experience*@
+<div class="home-experience-container left-right-padding top-bottom-padding top-bottom-padding-sm">
+    <div class="experience-left left-right-padding">
+        <h3>30 years of experience</h3>
+        <p>Celebrating 30 years of keeping east anglia moving.</p>
+        <a class="btn btn-blue mt-2" href="@ConfigurationManager.AppSettings["OurStory"]"><p>More About Us</p></a>
+    </div>
+    <div class="experience-middle text-center">
+        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "experience-icon",ImageName="years-experience-holbrook", ImageDescription = "Medal icon showing 30 years experience for Rory J Holbrook ltd", IncludeOtherSizes = false}'/>
+    </div>
+    <div class="experience-right left-right-padding">
+        <h3>Delivering nationwide</h3>
+        <p>We work across the length and breadth of the UK and beyond.</p>
+    </div>
+</div>
+@*Aggregates advert*@
+@await Component.InvokeAsync("AggregateAdvertSnippet", new AggregateAdvertSnippetViewComponent.AggregateAdvertViewModel(){ 
+    title = "Primary and Recycled Aggregates",
+    subTitle = "Browse our wide array of primary and recylced aggregates"
+})
+@*Contact and News*@
+<div class="home-contact-news-container">
+    @*Contact*@
+    <div class="home-contact-info top-bottom-padding left-right-padding left-right-padding-sm">
+        <h3 class="text-dark">Get In Touch</h3>
+        <div class="mt-lg-5 mt-4">
+            <div class="home-contact-sections-container">
+                <div class="home-contact-section home-contact-email">
+                    <div class="form-inline">
+                        <h2><i class="fas fa-envelope pr-2 d-inline"></i></h2>
+                        <p><a class="text-white cursor-pointer" href="mailto:sales@holbrookgroup.co.uk">sales@holbrookgroup.co.uk</a></p>
+                    </div>
+                </div>
+                <div class="home-contact-section home-contact-phone">
+                    <div class="form-inline">
+                        <h2><i class="fas fa-phone pr-2" style="transform:rotate(90deg)"></i></h2>
+                        <p><a class="text-white cursor-pointer" href="tel:01953 718306">01953 718306</a></p>
+                    </div>
+                </div>
+                <div class="home-contact-section home-contact-enquire">
+                    <div class="form-inline">
+                        <h2><i class="fas fa-paper-plane pr-2"></i></h2>
+                        <p><a class="text-white cursor-pointer" href="@ConfigurationManager.AppSettings["Contact"]">General Enquiry</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*News*@
+    <div class="home-news">
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar, numberOfArticles = 2 })
+    </div>
+</div>
+@await Component.InvokeAsync("TestimonialsSnippet", new
+{
+    snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    variationEnum = (int)Enums.Variations.Variation1,
+    cssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Blue,
+})
+@*Why Choose Us*@
+<div class="faded-img-behind top-bottom-padding" title="Faded 8 wheelers image behind main content">
+    <div class="left-right-padding">
+        <div class="row">
+            <div class="col-lg-4 text-lg-right col-12 text-left">
+                <img src="~/images/union-jack-holbrook-lopo-sm.png" type="image/png" alt="Union jack icon which represents the Rory J Holbrook logo" class="why-us-union-jack mb-4" />
+                <h2 style="color:black;">Why choose</h2>
+                <h1 class="oswald text-blue">RORY J HOLBROOK <small class="oswald">ltd</small>&nbsp;?</h1>
+            </div>
+            <div class="col-lg-8 col-12 text-left pl-lg-5 mt-lg-0 mt-4">
+                <p style="text-align:justify">
+                    Rory J Holbrook Ltd is a family run haulage, plant and aggregate supply business, founded in 1988 by Mr Rory Holbrook.
+                    With over 30 years of experience in the industry the company has grown substantially with a fleet of over 60 vehicles
+                    covering the whole of the United Kingdom.
+                    <br /><br />With the vast range of different bodies, ranging from fully insulated tippers
+                    to TASCC registered tippers we aim to assist in every way that you, the customer may need.
+                    <br /><br />
+                    With sites located at Attleborough, Norwich, Brandon and Lakenheath we offer competitively priced primary and recycled
+                    aggregates available for collection and delivery.
+                    <br /><br />
+                    As well as aggregate collection we also operate permitted tips at our
+                    Attleborough and Lakenheath sites available for inert tipping.
+                    <br /><br />
+                    With a fleet combining of a mixture of 32 tonne 8 wheel tippers to 44 tonne articulated tippers, we offer haulage locally
+                    and across the UK to meet our customers demands.
+                    <br /><br />
+                    No job is too big or too small, so if you have any enquires please
+                    contact our experienced sales team on <a href="tel:01953 718306">01953 718306</a> to discuss matters further.
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="top-bottom-padding" style="background-color:#262626">
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-12">
+            <div class="row row-eq-height">
+                <partial name="partials/sliders/_standardsandpartnerssliders" model="@(int)Variations.Variation1" />
+                <div class="col-md-6 col-12 mt-4">
+                    <div class="white-segment">
+                        <h4>Health & Safety and insurance licenses</h4>
+                        <p class="mt-3">Maintaining an outstanding Health and Safety record means our team is on a never ending process of measuring our standards, improving and implementation.</p>
+                        <div class="home-segment-img-container">
+                            <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "home-segment-img",ImageName="health-safety-equipment", ImageDescription = "A lorry, van and car showing the range of fleet available", IncludeOtherSizes = false}'/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 mt-4">
+                    <div class="white-segment">
+                        <h4>Rory J Holbrook is built on experience</h4>
+                        <p class="mt-3">Our personnel department are always interested in hearing from experienced operatives, whether HGV or plant.</p>
+                        <div class="home-segment-img-container">
+                            <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "home-segment-img",ImageName="haulage-vehicles-example", ImageDescription = "Hard hat and goggles demonstrating health and safety priorities", IncludeOtherSizes = false}'/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $('.carousel').on('slide.bs.carousel', function () {
+            var iframe = document.getElementById("rail-haulage-video");
+            var player = new Vimeo.Player(iframe);
+            player.element.src = player.element.src;
+        });
+        $('.carousel').carousel({
+            interval: 8000
+        })
+    </script>
+}

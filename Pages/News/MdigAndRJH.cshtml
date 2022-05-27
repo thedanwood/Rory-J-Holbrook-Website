@@ -1,0 +1,9 @@
+﻿@page "/news/mdig-and-rjh"
+@{
+    ViewBag.Title = "RJH and MDig Partnership";
+    ViewBag.NavButtonNames = "news-nav-btn";
+}
+@section head{
+    <meta name="robots" content="noindex">
+}
+@await Component.InvokeAsync("NewsPage", new { newsArticlePageName = "mdig-and-rjh"})

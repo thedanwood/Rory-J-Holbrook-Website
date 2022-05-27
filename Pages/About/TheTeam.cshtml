@@ -1,0 +1,140 @@
+﻿@page "/about/the-team"
+@using System.Configuration
+@{
+    ViewBag.Title = "Meet Our Specialist Team";
+    ViewBag.NavButtonNames = "about-nav-btn,the-team-nav-btn";
+}
+@section head{
+    <meta name='description' content='The key to a thriving business is a good work force. Our staff our trained to the highest standards and are always there to help.' />
+    <meta name='keywords' content='transport manager, accounts, invoicing, transport' />
+}
+<div class="container-fluid pl-0 pr-0 bg-white">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="full-team-8-wheeler", ImageDescription = "Rorys full team leaning against an 8 wheeler in the Lakenheath, Norfolk site"}'/>
+</div>
+<div class="page-name">
+    <h1>THE TEAM</h1>
+</div>
+
+<div class="row faded-img-behind" title="Faded 8 wheelers image behind main content">
+    <div class="left-right-padding">
+
+        <div class="row">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb pl-0">
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["About"]">About</a></li>
+                    <li class="breadcrumb-item active"><a href="#">The Team</a></li>
+                </ol>
+                <hr class="mb-0" />
+            </nav>
+        </div>
+
+        <div class="row justify-content-center top-bottom-padding">
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Rory Holbrook</h4>
+                    <hr />
+                    <p>Owner and Director</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Ben Williams</h4>
+                    <hr />
+                    <p>Senior Transport Manager</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-md-0 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Pav Myrcik</h4>
+                    <hr />
+                    <p>Operations Manager – Suffolk Depots</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-0 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Jake Williams</h4>
+                    <hr />
+                    <p>Transport Manager</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-5 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Julie Croker</h4>
+                    <hr />
+                    <p>Transport Manager</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-5 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Mandy Holmes</h4>
+                    <hr />
+                    <p>Transport Admin</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-5 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Keith Freeman</h4>
+                    <hr />
+                    <p>Senior Accountant</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-5 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Ryan Holbrook</h4>
+                    <hr />
+                    <p>Contracts Engineer</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-5 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Hayley Briggs</h4>
+                    <hr />
+                    <p>Junior Accountant</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 mt-lg-5 mt-4">
+                <div class="the-team-profile">
+                    <h1><i class="fas fa-user-alt mb-3 mt-3"></i></h1>
+                    <h4>Nicola Priehs</h4>
+                    <hr />
+                    <p>Invoicing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*@await Component.InvokeAsync("AboutPagesSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar, CurrentAboutPageEnum = (int)Enums.AboutPages.TheTeam })*@
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "theteam",
+    ParentPage = "about",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightBlue,
+    Title = "Find Out More About Us",
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "See Our Construction Services",
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "See Our Haulage Services",
+})

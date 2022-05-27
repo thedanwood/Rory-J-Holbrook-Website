@@ -1,0 +1,11 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel{ 
+    ImagePath = "artic-tipper-lorry-sm", 
+    ImageDescription = "Artic 8 Wheeler Rory J Holbrook Vehicle at Lakenheath, Suffolk",
+    Title = "Our Story",
+    ButtonText = "Read Our Story",
+    ButtonLink = ConfigurationManager.AppSettings["OurStory"],
+    TileStyleEnum = Model,
+})

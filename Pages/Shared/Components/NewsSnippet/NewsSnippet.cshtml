@@ -1,0 +1,64 @@
+﻿@using Enums;
+@using RJHWebsite.Models
+@model NewsSnippetViewComponent.NewsSnippetViewModel
+
+@if (Model.SnippetTypeEnum == (int)SnippetTypes.Sidebar)
+{
+    <div class="sidebar-contents style-@Model.CssStyleEnum">
+        <h4 class="style-heading">@(Model.Title??"Latest News")</h4>
+        <hr class="style-hr"/>
+        @{var counter = 0;}
+        @foreach (NewsInformationModel newsInfo in Model.NewsInformationModel)
+        {
+            <p class="style-heading"><b>Title: </b>@newsInfo.Title</p>
+            <div class="row">
+                <div class="col-lg-5 col-md-2 col-4 pl-0 pr-0">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "sidebar-news-img style-img",ImageName=newsInfo.ImagePath+"-sm", ImageDescription = newsInfo.ImageDescription, IncludeOtherSizes = false}'/>
+                </div>
+                <div class="col-lg-7 col-md-10 col-8">
+                    <p class="style-text">
+                        <b>Date: </b>@newsInfo.PublishedDate
+                        <br />
+                        <span class="sidebar-news-text">
+                            @(Html.Raw(System.Web.HttpUtility.HtmlDecode(newsInfo.Body.Substring(0, 200))))
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <hr class="style-hr"/>
+            <a class="btn btn-dark style-btn" href="/news/@newsInfo.PageName"><p>Read More</p></a>
+            counter++;
+            if (counter != Model.NewsInformationModel.Count())
+            {
+                <hr class="style-hr"/>
+            }
+        }
+    </div>
+}
+else if (Model.SnippetTypeEnum == (int)SnippetTypes.FullBottomBar)
+{
+    var bootstrapCol = 12 / Model.NumberOfArticles;
+    <div class="top-bottom-padding style-@Model.CssStyleEnum">
+        <div class="left-right-padding">
+            <h2 class="style-heading">@(Model.Title ?? "Latest News")</h2>
+            <hr class="style-hr"/>
+            <div class="row top-bottom-padding top-bottom-padding-sm">
+                @foreach (NewsInformationModel newsInfo in Model.NewsInformationModel)
+                {
+                    <div class="news-snippet-wrapper col-lg-@bootstrapCol col-sm-6 col-12 pl-0 pr-0">
+                        <h4 class="bottom-bar-news-title style-heading">
+                            @newsInfo.Title
+                        </h4>
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "bottom-bar-news-img mt-3 style-img",ImageName=newsInfo.ImagePath+"-lg", ImageDescription = newsInfo.ImageDescription}'/>
+                        <p class="style-text"> <small><i>Source: <a href="/news/@newsInfo.PageName" target="_blank">@newsInfo.SourceName</a></i></small></p>
+                        <p class="bottom-bar-news-text style-text">
+                            @(Html.Raw(System.Web.HttpUtility.HtmlDecode(newsInfo.Body.Substring(0, 500))))
+                        </p>
+                        <a class="mt-lg-4 mt-2 btn btn-dark style-btn" href="/news/@newsInfo.PageName"><p>Read More</p></a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+}

@@ -1,0 +1,54 @@
+﻿@using System.Configuration
+@model RJHWebsite.Models.NewsInformationModel
+<div class="left-right-padding">
+    <div class="row">
+        <nav aria-label="breadcrumb" class="mt-4">
+            <ol class="breadcrumb pl-0">
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["News"]">News</a></li>
+                @{var titleSplit = Model.Title.Split();}
+                <li class="breadcrumb-item active"><a href="#">@titleSplit[0] @titleSplit[1] @titleSplit[2]...</a></li>
+            </ol>
+            <hr class="mb-0" />
+        </nav>
+    </div>
+    <div class=" top-bottom-padding">
+        <h1>
+            @Model.Title
+        </h1>
+            <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "individual-news-img mt-lg-3 mt-2",ImageName=Model.ImagePath+"-lg", ImageDescription = Model.ImageDescription}'/>
+        <p>
+            <i>
+                Date: @Model.PublishedDate
+            </i>
+        </p>
+        <p>
+            <i>
+                Source: <a target="_blank" href="@Model.SourceLink">@Model.SourceName</a>
+            </i>
+        </p>
+        <hr />
+        <span class="mt-lg-4 mt-2 f7">
+                @(Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Body)))
+        </span>
+    </div>
+</div>
+@await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar, cssStyleEnum = (int)Enums.CssStyles.LightBlue, title="Other News", currentNewsPage = Model.Title})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Blue,
+    Title = "Explore Our Construction Services"
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "Explore Our Haulage Services"
+})
+
+

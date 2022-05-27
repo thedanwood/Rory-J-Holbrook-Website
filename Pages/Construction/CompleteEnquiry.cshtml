@@ -1,0 +1,75 @@
+﻿@page "/aggregates/aggregate-supply/complete-enquiry"
+@using System.Configuration
+@model RJHWebsite.Pages.Construction.CompleteEnquiryModel
+@{
+    ViewBag.Title = "Complete Enquiry";
+}
+<meta name="robots" content="noindex">
+<div class=" left-right-padding-lg left-right-padding">
+    <div class="row">
+        <nav aria-label="breadcrumb" class="mt-4">
+            <ol class="breadcrumb pl-0">
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction</a></li>
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["AggregateServices"]">Aggregates</a></li>
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["AggregateSupply"]">Aggregate Supplies</a></li>
+                <li class="breadcrumb-item active"><a href="">Complete Enquiry</a></li>
+            </ol>
+            <hr class="mb-0" />
+        </nav>
+    </div>
+    <div class="top-bottom-padding">
+        <div class="text-right">
+            <a href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-primary" class="btn btn-lg btn-green mb-3"><i class="fas fa-plus pr-2"></i>Add More Aggregates</a>
+        </div>
+        <div class="text-right">
+            <a href="#" onclick="$('.enquiry-list-contents').addClass('d-block')" class="btn btn-lg btn-turquoise mb-3">Edit Aggregates</a>
+        </div>
+        <div class="complete-enquiry-container">
+            <partial name="partials/_loader" model="@("complete-enquiry-loader")" />
+            <h1 class="body-title">Enquiry List</h1>
+            <hr />
+            <div class="complete-enquiry-aggregate-items">
+                 @foreach(var aggregate in Model.AggregatesInEnquiry)
+                {
+                    var formattedAggregateImageName = aggregate.AggregateName.ToLower().Replace(" - bulk bag","").Replace(@" ", "-").Replace("/","-");
+                    <div class="aggregate-complete-enquiry-container">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "enquiry-list-img lazyload",ImageName=formattedAggregateImageName+"-xs", ImageDescription = aggregate.AggregateName+" small aggregate icon image", IncludeOtherSizes = false}'/>
+                        <span><h6><span style="text-transform:capitalize">@aggregate.AggregateName.Replace("-"," ")</span> - @aggregate.Quantity x @(aggregate.QuantityUnit)(s)</h6></span>
+                    </div>
+                }
+            </div>
+           
+            <hr />
+            <form id="submit-enquiry-form" method="post" class="form mt-3" asp-antiforgery="true">
+                <input type="text" id="txtFullName" asp-for="FullName" required minlength="2" maxlength="200" class="form-control contact-form-input" placeholder="Full Name"/>
+                <span asp-validation-for="FullName"></span>
+                <input type="text" id="txtEmail" asp-for="EmailAddress" required email="true" class="form-control contact-form-input" placeholder="Email Address"/>
+                <span asp-validation-for="EmailAddress"></span>
+                <input type="text" id="txtPostCode" postcodevalid="true" required asp-for="PostCode" class="form-control contact-form-input" placeholder="Post Code"/>
+                <span asp-validation-for="PostCode"></span>
+                <br />
+                 <input type="submit" value="Send Email" id="send-email-btn" asp-page-handler="Submit" class="btn btn-blue mt-lg-4 mt-3"/>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $.validator.addMethod( "postcodevalid", function( value, element ) {
+            return this.optional( element ) || /^((([A-PR-UWYZ][0-9])|([A-PR-UWYZ][0-9][0-9])|([A-PR-UWYZ][A-HK-Y][0-9])|([A-PR-UWYZ][A-HK-Y][0-9][0-9])|([A-PR-UWYZ][0-9][A-HJKSTUW])|([A-PR-UWYZ][A-HK-Y][0-9][ABEHMNPRVWXY]))\s?([0-9][ABD-HJLNP-UW-Z]{2})|(GIR)\s?(0AA))$/i.test( value );
+        }, "Please specify a valid UK postcode" );
+        $("#submit-enquiry-form").validate({
+            rules: {
+                postcodevalid: { postcodevalid: true },
+            },
+        });
+        $("#submit-enquiry-form").submit(function(){
+            if($(this).valid()){
+                $("#complete-enquiry-loader").show();
+            }
+        })
+    </script>
+}

@@ -1,0 +1,113 @@
+﻿@page "/locations"
+@using System.Configuration
+@model RJHWebsite.Pages.Locations.IndexModel
+@{
+    ViewBag.Title = "Locations";
+    ViewBag.NavButtonNames = "locations-nav-btn";
+}
+@section head{
+    <meta name='description' content='With sites located at Roudham, Brandon, Lakenheath and Norwich we offer aggregate and haulage deliveries all over the UK.' />
+    <meta name='keywords' content='Norwich, brandon, lakenheath, Roudham, attleborough, aggregates, collection, delivery' />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="tipper-hire-road-haulage", ImageDescription = "Fleet of tipper lorries in Rory J Holbrook yard"}'/>
+<div class="page-name">
+    <h1>OUR LOCATIONS</h1>
+</div>
+<div class="faded-img-behind" title="Faded 8 wheelers image behind main content">
+    <div class="left-right-padding">
+        <div class="row">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb ">
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="@ConfigurationManager.AppSettings["Locations"]">Our Locations</a></li>
+                </ol>
+                <hr class="mb-0" />
+            </nav>
+        </div>
+        <div class="row row-eq-height top-bottom-padding">
+            <div class="col-xl-6 col-12">
+                <div class="locations-box-container" id="location-roudham">
+                    <h2 class="body-title">Roudham, Attleborough<small> (head office location)</small></h2>
+                     <hr />
+                    <div class="locations-box-body">
+                        <p>
+                            Rory J Holbrook Ltd,
+                            <br />
+                            Roudham Road,
+                            <br />East Harling,
+                            <br />NR16 2QN
+                            <br /><br />
+                            All materials on our <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> page are readily available for collection
+                            <br /><br />
+                            <i class="fas fa-phone pl-2"></i>Transport - <a href="tel:01953 718306">01953 718306</a>
+                            <br /><br />
+                            <i class="fas fa-phone pl-2"></i> Accounts/invoicing - <a href="tel:01953 718315">01953 718315</a>
+                            <br /><br />
+                        </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2891.6885448364756!2d0.8908544445831361!3d52.44996960784151!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d9ceb1e52963ff%3A0x9bf3371238bc36f7!2sRoudham+Rd%2C+Norwich!5e0!3m2!1sen!2suk!4v1477547697502" width="100%" height="235" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                        <br />
+                        <br />
+                        <p>If you have any queries regarding these construction-services please visit the <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> page.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-12 mt-xl-0 mt-4">
+                <div class="locations-box-container" id="location-brandon">
+                    <h2 class="body-title">Brandon Railhead</h2>
+                    <hr />
+                    <div class="locations-box-body">
+                        <p>
+                            Rory J Holbrook Ltd,
+                            <br />High Street,
+                            <br />Brandon,
+                            <br />IP27 0BA
+                            <br /><br />
+                            All materials on our <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> page are readily available for collection
+                            <br /><br />
+                            <i class="fas fa-phone pl-2"></i>Weighbridge - <a href="tel:01842 813878">01842 813878</a>
+                            <br /><br />
+                        </p>
+                        <div class="locations-box-bottom-half">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.3884452557827!2d0.6224609160881671!3d52.45399217980163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d830d043af1e21%3A0x154869b833ced2e4!2sBrandon!5e0!3m2!1sen!2suk!4v1585652334025!5m2!1sen!2suk" width="100%" height="235" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                            <br />
+                            <br />
+                            <p>If you have any queries regarding these construction-services please visit the <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> page.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-12 mt-xl-5 mt-4">
+                <div class="locations-box-container" id="location-lakenheath">
+                    <h2 class="body-title">Lakenheath Recycling Centre</h2>
+                    <hr />
+                    <div class="locations-box-body">
+                        <p>
+                            Rory J Holbrook Ltd,
+                            <br />Brandon Road,
+                            <br />Lakenheath,
+                            <br />IP27 9FB
+                            <br /><br />
+                            All materials on our <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> page are readily available for collection
+                            <br /><br />
+                           <i class="fas fa-phone pr-2"></i>Weighbridge - <a href="tel:01638 534984">01638 534984</a>
+                            <br /><br />
+                        </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.5965549462853!2d0.5519472159956214!3d52.39586365317362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d830674ecad669%3A0x48f89870f14a4a2d!2sBrandon%20Rd%2C%20Brandon%20IP27%209FB!5e0!3m2!1sen!2suk!4v1591524818657!5m2!1sen!2suk" width="100%" height="235" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <br />
+                        <br />
+                        <p>If you have any queries regarding these construction-services please visit the <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a> page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        @{
+            if(Model.LocationName != null && Model.LocationName != ""){
+                @:scrollToElement("#location-@Model.LocationName",null,-180,true);
+            }
+        }
+    </script>
+}

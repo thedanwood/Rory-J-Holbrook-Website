@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "earthworks-tipper",
+    ImageDescription = "___ vehicle working at ____",
+    Title = "Bulk Earthworks",
+    ButtonText = "View Our Bulk Earthwork Services",
+    ButtonLink = ConfigurationManager.AppSettings["Earthworks"],
+    TileStyleEnum = Model,
+})

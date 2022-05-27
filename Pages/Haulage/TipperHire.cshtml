@@ -1,0 +1,114 @@
+﻿@page "/road-haulage/tipper-hire"
+@model Pages.Haulage.TipperHireModel
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Tipper Hire Services";
+    ViewBag.NavButtonNames = "haulage-services-nav-btn,tipper-hire-nav-btn";
+}
+@section head{
+    <meta name='description' content='With a large fleet of tippers varying from 8 wheelers to articulated vehicles, we offer Road and Rail Haulage across the whole of the UK.' />
+    <meta name='keywords' content='8 wheeler, local, away, DAF, Mercedes, steel body, insulated, tarmac, conveyor floor, artic' />
+}
+<div class="main-img">
+     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="tipper-hire-road-haulage", ImageDescription = "Fleet of tipper lorries in Rory J Holbrook yard"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Tipper Hire</h1>p
+                <p class="img-overlay-text">
+                    Unrivaled Tipper Hire services in East Anglia and beyond
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=tipper-hire" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Tipper Hire Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage</a></li>
+                         <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["RoadHaulageServices"]">Road Haulage</a></li>
+                        <li class="breadcrumb-item active"><a href="@ConfigurationManager.AppSettings["TipperHire"]">Tipper Hire</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <h2 class="body-title f1">Tipper Hire</h2>
+                <p>
+                    Our haulage operations largely depends on our abilities to supply and distribute
+                    large quantities of aggregates to our operational regions. Because of this demand,
+                    we have continually invested in our extensive fleet of 8-Wheel and Articulated Tippers
+                    so that our customers can continue to receive our outstanding services.
+                    Our operational fleet consists of <strong>tippers</strong>, <a href="@ConfigurationManager.AppSettings["GrabHire"]">grabs</a>, and <a href="@ConfigurationManager.AppSettings["NonTippingConveyorFloor"]">conveyor floors</a>.
+                    <br /><br />Like all of our fleet, our tippers are compliant with regulations outlined by the <strong>FORS</strong>
+                    (Fleet Operator Recognition Scheme). This enables us to:
+                </p>
+                <ul>
+                    <li><p>Work with our partners to reponsibly manage the risk on the road</p></li>
+                    <li><p>Reduce the envrionmental impact of our operations</p></li>
+                    <li><p>Maintain and constantly improve our understanding of the industries regulations</p></li>
+                    <li><p>Consistently provide high quality, safe and efficient service</p></li>
+                </ul>
+                <p>
+                    We offer a selection of tippers for hire as shown below.
+                </p>
+                <h2 class="body-title">Tippers For Hire</h2>
+                <div class="row row-plr-0 tipper-hire-items-container">
+                    @foreach(var tipper in Model.AllTippers)
+                    {
+                        <div class="col-xl-4 col-sm-6 col-12 tipper-hire-wrapper" id="tipper-@tipper.TipperName.Replace(" ","-").ToLower()">
+                            <div class="tipper-hire-container">
+                                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "tipper-hire-img",ImageName=tipper.ImageName, ImageDescription = tipper.ImageDescription, IncludeOtherSizes=false}'/>
+                                <div class="tipper-hire-content-container">
+                                    <h3 class="tipper-hire-title">@tipper.TipperName</h3>
+                                    <hr class="white-hr">
+                                    <p class="mb-0">
+                                        Ideal for:
+                                        <ul class="pl-4">
+                                            @(Html.Raw(System.Web.HttpUtility.HtmlDecode(tipper.Capabilities)))
+                                        </ul>
+                                    </p>
+                                    <p class="mb-0"><i>@tipper.DeliveryInfo</i></p>
+                                    <a class="btn btn-light text-dark mt-2"href="@ConfigurationManager.AppSettings["Contact"]?subject=tipper-hire"><p>Enquire Now</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <h2 class="body-title mt-4">Related Services</h2>
+                <div class="related-pages-tiles-container">
+                    <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/haulage/_grabhiretile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_muckawaytile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/haulage/_railheadstile" model="(int)TileStyles.SquareDiagonal"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+         @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "We Also Offer Construction Services"
+        })
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 2, cssStyleEnum = (int)Enums.CssStyles.LightGrey })
+    </div>
+</div>
+@section scripts {
+    <script>
+        @{
+            if(Model.TipperType != null && Model.TipperType != ""){
+                @:scrollToElement("#tipper-@Model.TipperType",null,-180,true);
+            }
+        }
+    </script>
+}

@@ -1,0 +1,101 @@
+﻿@page "/recycling/material-recycling"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Material Recycling";
+    ViewBag.NavButtonNames = "construction-services-nav-btn,recycling-nav-btn";
+}
+@section head{
+    <meta name='description' content='With our dedicated recycling facilities we are able to process and recover material from what would otherwise be deemed as construction and demolition waste' />
+    <meta name='keywords' content='landfill, reycycling, material recycling' />
+}
+<div class="video-container">
+    <iframe class="video" src="https://player.vimeo.com/video/678293336?h=c49e294aa6&amp;autoplay=1&amp;player_id=0&amp;quality=1080px&amp;app_id=58479&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay" title="construction-material-recycling.mp4" id="material-recycling-video"></iframe>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner ">
+                <h1 class="img-overlay-title">Material Recycling</h1>
+                <p class="img-overlay-text">Saving 100,000 tonnes from landfill every year.</p>
+                <a href="/contact?subject=material-recycling" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Material Recycling Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction Services</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["RecyclingServices"]">Recycling Services</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Material Recycling</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                 <h2 class="body-title f1">Material Recycling</h2>
+                <p>
+                    With our dedicated <strong>recycling</strong> facilities strategically based to cover <a href="@ConfigurationManager.AppSettings["NorfolkLocation"]">Norfolk</a>, Suffolk, Bedfordshire and Cambridgeshire we are able to process and recover material from what would otherwise be deemed as construction and demolition waste that’s would previously be sent to landfill sites. 
+                 </p>
+                <h2 class="body-title">Process of Material Recycling</h2>
+                <p>
+                    The process of recycling aims to turn a previously deemed waste material into a product that can be used again within the construction environment, therefore reducing the dependency and demand for primary rock and <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregates</a>. Due to the geology of Norfolk and Suffolk, sand and gravel are abundant and readily available, however primary graded rock and aggregates must be imported which can be costly for all parties involved. By recovering as much material from waste as possible we aim to provide a sustainable alternative however, to ensure our customers’ needs are always met we operate a <a href="@ConfigurationManager.AppSettings["TipperHire"]">tipper fleet</a> and <a href="@ConfigurationManager.AppSettings["Railheads"]">railheads</a> importing over 10,000 tonnes of  <a href="@ConfigurationManager.AppSettings["AggregateSupplyPrimary"]">primary material</a>  into the region each week.  
+                    Within the industry there is growing pressure from developers, designers and government agencies to incorporate <a href="@ConfigurationManager.AppSettings["AggregateSupplyRecycled"]">recycled materials</a> into the construction of buildings and infrastructure projects. 
+                </p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 w-lg-75 mb-3",ImageName="recycling-materials-muckaway", ImageDescription = "Mixed gravel being screened at recycling center",IncludeOtherSizes = false}'/>
+                 <h2 class="body-title">Our Recycling Capabilities</h2>
+                <p>
+                    With our <strong>recycling</strong> capabilities we aim to play a key role in meeting these environmental targets and minimizing the amount of waste being produced from the construction industry. All our recycled products are produced in accordance with WRAP Protocol and are continuously tested by an independent lab to guarantee consistency and quality in all we do. 
+                    We pride ourselves on being one of the biggest produces of recycled products in the region, with a fleet of <a href="@ConfigurationManager.AppSettings["PlantHireJawCrusher"]">jaw crushers</a>, crushing buckets and screeners at various locations enabling us to produce a variety of materials catered to our customers needs. Below are just some of the products we produce and supply:
+                   <ul>
+                       <li>Type 1 Crush Concrete</li>
+                       <li>75mm Oversized crushed concrete </li>
+                       <li>Crushed Hardcore (6F2 & 6F5)</li>
+                       <li>Crushed Asphalt</li>
+                       <li>Crushed Track Ballast</li>
+                       <li>Screened Sandfill</li>
+                       <li>Sand and Gravel 50/50 Mixture. (Used as Concrete Ballast or Permeable Fill Material) </li>
+                       <li>Recycled 20mm Gravel </li>
+                       <li>Recycled 40mm Gravel </li>
+                       <li>Fine Grade Topsoil</li>
+                       <li>General Purpose Topsoil</li>
+                   </ul>
+                </p>
+                <h2 class="body-title mt-4">Related Services</h2>
+                <div class="related-pages-tiles-container">
+                    <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_muckawaytile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/haulage/_grabhiretile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/haulage/_railheadstile" model="(int)TileStyles.SquareDiagonal"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "Recycling",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See Our Other Construction Services"
+        })
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "View The Variety Of Haulage Services We Offer"
+        })
+    </div>
+</div>
+@await Component.InvokeAsync("TestimonialsSnippet", new
+{
+    snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    variationEnum = (int)Enums.Variations.Variation1,
+    cssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+})

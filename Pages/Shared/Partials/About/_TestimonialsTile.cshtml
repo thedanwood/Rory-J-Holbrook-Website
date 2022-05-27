@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "tarmac-colas-lagan",
+    ImageDescription = "Tarmac, Colas and Lagan logos",
+    Title = "Testimonials",
+    ButtonText = "See Our Testimonials",
+    ButtonLink = ConfigurationManager.AppSettings["Testimonials"], 
+    TileStyleEnum = Model
+})

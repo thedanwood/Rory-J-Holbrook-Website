@@ -1,0 +1,127 @@
+﻿@page "/material-removal/muckaway"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Muckaway";
+    ViewBag.NavButtonNames = "construction-services-nav-btn,muckaway-nav-btn";
+}
+@section head{
+    <meta name='description' content='With a large varied fleet we make the whole process easier for you, from inert material to hazardous material, we can move anything.' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="muckaway-wheel-loader-services", ImageDescription = "Wheel loader loading muckaway onto 8 wheel tipper"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Muckaway</h1>
+                <p class="img-overlay-text xl-img-overlay-text">With over 35 years of experience in muck away and a fleet of tippers and grabs, we can facilitate the removal of any waste material. </p>
+                <a href="/contact?subject=muckaway" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Muckaway Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["MaterialRemovalServices"]">Material Removal</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Muckaway</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <h1 class="body-title">
+                    Muckaway
+                </h1>
+                <p>
+                    Rory J Holbrook Ltd is licensed with the Environment Agency to collect, recycle and dispose of all types of waste that may arise on your site.
+                    <br /><br />
+                    Our ever-expanding fleet of <a href="@ConfigurationManager.AppSettings["TipperHire"]">tippers</a>, <a href="@ConfigurationManager.AppSettings["GrabHire"]">grab lorries</a>, <a href="@ConfigurationManager.AppSettings["NonTippingConveyorFloor"]">conveyor floors</a> and artic lorries takes the hassle out of any muck or waste shifting projects that we undergo.
+                    <br /><br />
+                    Our range of vehicles caters for all developments, All vehicles are fully compliant with the Fleet Operator Recognition Scheme (FORS) and the Construction Logistics and Cyclist Safety (CLOCS).
+                    <br /><br />
+                    <strong>Muckaway</strong> or also commonly known as site clearance or muck shifting, is the process of removing waste material or spoil 
+                    from a site that has been produced as part of the construction process. With over 35 years of experience in <strong>muckaway</strong> 
+                    and a fleet of over 100+ vehicles ranging from conventional tippers too grab lorries and articulated bulkers we can 
+                    remove all volumes of waste no matter the quantity. Holbrooks are proud to say all our operating vehicles are gold 
+                    standard complaint in accordance with the Fleet Operator Recognition Scheme (FORS).
+                </p>
+                <div class="row row-plr-0">
+                    <div class="col-lg-6 col-12">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 mb-4",ImageName="muckaway-site-clearance", ImageDescription = "Muckaway removal and site clearance", IncludeOtherSizes = false}'/>
+                    </div>
+                    <div class="col-lg-6 col-12 pl-lg-4">
+                        <h2 class="body-title">
+                            Muckaway Materials
+                        </h2>
+                        <p>
+                            Our services can fulfill the removal of:
+                            <ul>
+                                <li>Inert Waste</li>
+                                <li>Hazardous, toxic and contaminated waste</li>
+                                <li>Non-hazardous waste </li>
+                                <li>Green Waste</li>
+                                <li>Spoil and site clearance</li>
+                                <li>Concrete, rubble and hardcore</li>
+                            </ul>
+                            Over the years we’ve supported projects in all sectors; construction, rail, residential, highways, aviation education and commercial. 
+                            Example of services provided:
+                        </p>
+                    </div>
+                </div>
+                <br />
+                 <h2 class="body-title">
+                    Related Infrastructure
+                </h2>
+                <p>
+                    By operating 3 licensed waste transfer stations strategically placed around the eastern region, Rory J Holbrook Ltd 
+                    are proud to say that all our sites are grade A compliant and approved by the environment agency. With two of our 
+                    transfer stations also operating as recycling centers we are able to recover products from a waste material and 
+                    redistribute as a <a href="@ConfigurationManager.AppSettings["MaterialRecycling"]">recycled material</a>. Along side our Bulk aggregate supplies and site clearance service we can cater 
+                    for all your <a href="@ConfigurationManager.AppSettings["MaterialRemovalServices"]">waste removal</a> requirements.
+                </p>
+                <ul>
+                    <li>1 - 29 tonne load capacities</li>
+                    <li>Grab and Tipper lorries availabl</li>
+                    <li>Material movement between sites</li>
+                    <li>Inert Muckaway</li>
+                    <li>Contaminated Muckaway</li>
+                    <li>Concrete/Rubble Away</li>
+                </ul>
+                <h4 class="body-title">
+                    Related Infrastructure Services
+                </h4>
+                <div class="related-pages-tiles-container">
+                    <partial name="partials/haulage/_grabhiretile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_siteclearancetile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_materialrecyclingtile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "muckaway",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See Our Other Construction Services"
+        })
+         @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 2, cssStyleEnum = (int)Enums.CssStyles.LightGrey })
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "muckaway",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "Explore Our Haulage Services"
+})

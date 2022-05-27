@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "team-of-drivers-sm",
+    ImageDescription = "In front of an 8 wheeler, showing Rory's team of drivers",
+    Title = "The Team",
+    ButtonText = "Meet The Team",
+    ButtonLink = ConfigurationManager.AppSettings["TheTeam"],
+    TileStyleEnum = Model,
+})

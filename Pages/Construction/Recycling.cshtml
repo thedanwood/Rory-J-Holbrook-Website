@@ -1,0 +1,53 @@
+﻿@page "/recycling"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.NavButtonNames = "construction-services-nav-btn,recycling-services-nav-btn";
+    ViewBag.Title = "Recycling Services";
+}
+@section head{
+    <meta name='description' content="__" />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="construction-site-clearance", ImageDescription = "Materials and aggregates being removed at site"}' />
+<div class="page-name">
+    <h1>Recycling Services</h1>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Recycling Services</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_materialrecyclingtile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See All Haulage Services"
+        })
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+   SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+   CurrentPage = "recycling",
+   ParentPage = "construction",
+   CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+   Title = "See Our Other Construction Services"
+})

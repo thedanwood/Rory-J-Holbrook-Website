@@ -1,0 +1,276 @@
+﻿@page "/aggregates/aggregate-supply"
+@model RJHWebsite.Pages.Construction.AggregatesModel
+@using RJHWebsite.Enums 
+@using System.Configuration
+@{
+    ViewBag.Title = "Aggregate Suppliers in East Anglia";
+    ViewBag.NavButtonNames = "construction-services-nav-btn,aggregate-supplies-sub-nav-item";
+}
+@section head{
+    <meta name='description' content='Supplying all types of aggregates, from decorative to building. Whatever your requirements, we are here to help.' />
+    @if (Model.Type != null)
+    {
+        <meta name="robots" content="noindex">
+    }
+}
+<div id="enquiry-success-message" class="alert alert-success">
+    <h4><i class="fas fa-check pr-3"></i>Your aggregate enquiry has been successfully sent.</h4>
+    <br />
+    <p>One of our dedicated sales team will get in touch as soon as they can.</p>
+    <p class="mb-0">Can't wait? Call our Transport Office: <a href="tel:01963 718306">01953 718306</a></p>
+</div>
+<div class="modal fade" id="full-aggregate-calculator" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius:0!important;">
+            <div class="modal-header bg-lightblue">
+                <h5 class="modal-title" id="exampleModalLongTitle"><p><i class="fas fa-calculator pr-2"></i>Aggregate Calculator</p></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-inline">
+                    <label for="Type" class="pr-2">Type </label>
+                    <select id="aggregate-type" class="form-control">
+                        <option value="1.7">Ballast</option>
+                        <option value="1.8">Crushed Asphalt</option>
+                        <option value="1.7">Crushed Brick Rubble</option>
+                        <option value="1.7">Crushed Concrete</option>
+                        <option value="2.1">Granite</option>
+                        <option value="1.8">Gravel</option>
+                        <option value="1.7">Hoggin</option>
+                        <option value="1.7">MOT Type 1 Limestone</option>
+                        <option value="1.6">Sand</option>
+                        <option value="1.8">Topsoil</option>
+                        <option value="1.7">UB BLEND SHW SERIES 800 Type 1 Limestone</option>
+                    </select>
+                </div>
+                <form id="aggregate-form">
+                    <div class="mt-3">
+                        <label for="length" class="pr-2"><p>Length (meters)</p></label>
+                        <input type="number" required id="length" name="length" class="form-control calc-field" />
+                    </div>
+                    <div class="mt-3">
+                        <label for="width" class="pr-2"><p>Width (meters)</p></label>
+                        <input type="number" required id="width" name="width" class="form-control calc-field" />
+                    </div>
+                    <div class="mt-3">
+                        <label for="depth" class="pr-2"><p>Depth (millimetres)</p></label>
+                        <input type="number" required id="depth" name="depth" class="form-control calc-field" />
+                    </div>
+                    <input type="submit" class="btn btn-success mt-4" id="calculate-aggregates" value="Calculate">
+                </form>
+                <div class="mt-3">
+                    <label for="required" class="pr-2"><p>Approximate tonnage required</p></label>
+                    <input type="text" id="required" name="required" disabled="disabled" class="form-control calc-field" />
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="enable-cookies">
+    <div id="cookie-content">
+        <div>
+            <h2><i class="fas fa-cookie-bite pr-2"></i> In order to use this feature you must accept cookies.</h2>
+        </div>
+        <div class="mt-3">
+            <p>We will not use cookies for any other purpose besides storing your aggregate enquiry list data.</p>
+        </div>
+        <div class="mt-5">
+            <button class="btn-lg btn btn-success mr-2" id="accept-cookies">Accept</button>
+            <button class="btn-lg btn btn-danger ml-2" id="reject-cookies">Reject</button>
+        </div>
+    </div>
+</div>
+<div class="carousel slide carousel-fade main-img" data-ride="carousel" id="aggregate-supplies-carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="carousel-item-img-container">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="aggregates-selection", ImageDescription = "Full aggregate selection including soft sand, gravel, cement and more"}'/>
+            </div>
+            <div class="v-center-outer background-gradient">
+                <div class="v-center-middle ml-img-overlay">
+                    <div class="v-center-inner ">
+                        <h2 class="img-overlay-title f1">Need collection or delivery?</h2>
+                        <p class="img-overlay-text">View our haulage services or directly contact a member or our specialist team.</p>
+                        <a href="@ConfigurationManager.AppSettings["HaulageServices"]" class="btn btn-light img-overlay-btn">Haulage Services</a>
+                        <a href="@ConfigurationManager.AppSettings["Contact"]?subject=aggregate-supply" class="btn btn-blue img-overlay-btn">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-item-img-container">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="aggregate-supplied-at-site", ImageDescription = "Aerial view of material stocks in Lakenheath"}'/>
+            </div>
+            <div class="v-center-outer background-gradient">
+                <div class="v-center-middle ml-img-overlay">
+                    <div class="v-center-inner ">
+                        <h1 class="img-overlay-title">Aggregate Supplies</h2>
+                        <p class="img-overlay-text">The producers of over 250,000 tonnes of the finest quality aggregates.</p>
+                         <button onclick="scrollToElement('.aggregate-search-box-container')" class="btn btn-light img-overlay-btn">Explore Our Selection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#aggregate-supplies-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#aggregate-supplies-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main aggregate-page-with-sidebar-main">
+        <div class="left-right-padding">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb pl-0">
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction Services</a></li>
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["AggregateServices"]">Aggregates</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Aggregates Supplies</a></li>
+                </ol>
+                <hr class="mb-0" />
+            </nav>
+            <div class="mt-4">
+                <div class="w-100 text-left-right mb-3">
+                    <a class="btn btn-green" href="@ConfigurationManager.AppSettings["AggregateSupplyPrimary"]"><i class="fas fa-building pr-2"></i>Explore Our Aggregate Selection Now</a>
+                </div>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "aggregate-img-in-text",ImageName="aggregates-supply-holbrook", ImageDescription = "Aggregate selection such as sharp sand and soft sand", IncludeOtherSizes = false}' />
+                <div class="aggregate-img-in-text-body">
+                    <p>
+                        As one of the primary importers and suppliers of <strong>aggregate</strong> in the East Anglian region, each month the Holbrook group provides the region with over 250,000 tonnes of
+                        aggregate supporting major projects throughout <a href="@ConfigurationManager.AppSettings["AggregatesNorfolk"]">Norfolk</a>,  <a href="@ConfigurationManager.AppSettings["AggregatesIpswich"]">Suffolk</a>, Cambridgeshire, Essex, Bedfordshire and Herefordshire by utilising our extensive supply chain
+                        of quarries and rail heads, along side the fleet of over 100+ commercial vehicles supplying industry and trade.
+                        <br /><br />
+                        With a fleet of machinery that is continuously being modernised, we pride ourselves on our ability to crush and screen material to provide an array of
+                        <a href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-recycled">primary</a> and <a href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-recycled">recycled</a>  aggregates in accordance with ‘Highways and WRAP specification’ including but not limited too:
+                        Ballast, Building Sand, Gravel, Limestone, Granite, Topsoil, Hardcore, 6F2, Fines, Slate, Decorative Materials, Type 1 and Sharp Sand.
+                    </p>
+                </div>
+            </div>
+            <hr />
+            <div class="row mt-4">
+                <div>
+                    <p class="d-inline-block">Unsure of how much you need? Use our </p>
+                    <button id="aggregate-calculator" class="d-inline-block btn btn-light-blue d-inline ml-md-2" onclick="showAggregateCalculatorModal()"><p><i class="fas fa-calculator pr-2"></i>Aggregate Calculator</p></button>
+                </div>
+            </div>
+
+            <div class="row mt-lg-4 mt-3 mb-lg-4 mb-3">
+                <partial name="partials/construction/_aggregatesearchsection" model="@Model" />
+            </div>
+        </div>
+    </div>
+    <div class="sidebar aggregate-sidebar bg-light-light-blue">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "aggregatesupplies",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightBlue,
+            Title = "See Our Other Construction Services"
+        })
+    </div>
+</div>
+@*FAQs*@
+<div class="row bg-blue faqs">
+    <div class="left-right-padding">
+        <div class="top-bottom-padding">
+            <h2 class="text-white">Frequently Asked Questions</h2>
+            <hr class="white-hr" />
+            <div class="row text-light-light-blue">
+                <div class="col-md-6 col-12">
+                    <p>
+                        <b>Q.</b>&nbsp; I only need a small load, is that possible?
+                        <br />
+                        <b>A.</b>&nbsp; We can deliver loads from 1 Tonne to 30 Tonnes.
+                        <br /><br />
+                        <b>Q.</b>&nbsp; How do I know how much I need?
+                        <br />
+                        <b>A.</b>&nbsp; You can use our <a class="text-white" href="#" onclick="return false;" data-toggle="modal" data-target="#calcModel">aggregate calculator</a> or you can give us the dimensions of the area you wish to fill, our staff are able to tell you the tonnage you require.
+                    </p>
+                </div>
+                <div class="col-md-6 col-12 mt-md-0 mt-3">
+                    <p>
+                        <b>Q.</b>&nbsp; What area do you cover with your haulage?
+                        <br />
+                        <b>A.</b>&nbsp; We work across the length and breadth of the UK and beyond. Contact us <a class="text-white" href="@ConfigurationManager.AppSettings["Contact"]">here</a>
+                        <br /><br />
+                        <b>Q.</b>&nbsp; How long will delivery take?
+                        <br />
+                        <b>A.</b>&nbsp; Estimated delivery is between 3-5 days
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "We Also Offer Haulage Services"
+})
+<div class=" top-bottom-padding bg-dark">
+    <div class="left-right-padding">
+        <h3 class="text-white">Expert and Professional Service</h3>
+        <hr class="white-hr"/>
+        <div class="row">
+            <partial name="partials/sliders/_standardsandpartnerssliders" model="@(int)Variations.Variation3" />
+        </div>
+    </div>
+</div> 
+@section scripts{   `
+    <script>
+        @{
+            if(Model.Type != null && Model.Type != ""){
+                @:$('#full-aggregate-calculator').modal('show');
+            }
+        }
+        $('#aggregate-form').submit(function (e) {
+            e.preventDefault();
+            if (validateAggregatesForm()) {
+                var length = $('#length').val();
+                var width = $('#width').val();
+                var depth = $('#depth').val();
+                var convertionRate = $('#aggregate-type option:selected').val();
+                var cupicMeterCubed = length * width * (depth / 1000);
+                var value = cupicMeterCubed * convertionRate;
+                $('#required').val(value.toFixed(1));
+            }
+        })
+        function validateAggregatesForm() {
+            if ($('#length').val() != "" && $('#width').val() != "" && $('#depth').val() != "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var categorys = [];
+        @foreach (var category in Model.AggregateCategories)
+        {
+            @:categorys.push('@category.AggregateCategorySelectorName');
+        }
+        @{
+            if(TempData["EnquirySubmitted"] != null)
+            {
+                if ((bool)TempData["EnquirySubmitted"] == true) {
+                    @:$('#enquiry-success-message').show();
+                    @:setTimeout(function () { $('#enquiry-success-message').fadeOut(); }, 10000);
+                }
+            }
+        }
+    </script>
+    <script src="/js/aggregates.js"></script>
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "TipperName": "8 Wheel Steel Body",
+    "DeliveryInfo": "1-20 tonne local and long distance delivery available",
+    "Capabilities": "<li>Site clearances e.g. muckaway / concrete away</li><li>Aggregate delivery</li>",
+    "ImageName": "non-tipping-conveyor-floor-hire",
+    "ImageDescription": "8 wheeler non tipping conveyor floor for hire on display at Rorys site"
+  },
+  {
+    "TipperName": "8 Wheel Insulated Body",
+    "DeliveryInfo": "1-20 tonne local and long distance delivery available",
+    "Capabilities": "<li>Aggregate delivery</li><li>Asphalt delivery</li><li>Inert and contaminated muckaway</li>",
+    "ImageName": "8-wheel-insulated-body",
+    "ImageDescription": "8 wheeler insulated body tipper hire vehicle"
+  },
+  {
+    "TipperName": "Artic Bulker Hire",
+    "DeliveryInfo": "20-30 tonne local and long distance delivery available",
+    "Capabilities": "<li>TASC registered. Eg. grain</li><li>Aggregate delivery</li>",
+    "ImageName": "artic-bulker-hire",
+    "ImageDescription": "Articulated bulker lorry for hire showing vehicle driving down a11"
+  },
+  {
+    "TipperName": "Artic Steel Body",
+    "DeliveryInfo": "20-30 tonne local and long distance delivery available",
+    "Capabilities": "<li>Muckaway</li><li>Site clearances</li><li>Concrete away</li><li>Aggregate delivery</li>",
+    "ImageName": "artic-steel-body",
+    "ImageDescription": "Artic steel body truck being refilled by one of Rorys drivers"
+  },
+  {
+    "TipperName": "Artic Insulated Body",
+    "DeliveryInfo": "1-20 tonne local and long distance delivery available",
+    "Capabilities": "<li>Aggregate delivery</li><li>Asphalt delivery</li><li>Inert and contaminated muckaway</li>",
+    "ImageName": "artic-insulated-body",
+    "ImageDescription": "8 wheeler non tipping conveyor floor for hire on display at Rorys site"
+  }
+]

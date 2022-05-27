@@ -1,0 +1,167 @@
+﻿@using System.Configuration
+<style>
+    :root {
+        --navbar-height: 54px;
+        --white-hr: 1px solid rgba(255,255,255,.2) !important;
+        /*padding*/
+        --p-lg: 6.5%;
+        --p-md: 4%;
+        --p-sm:2.5%;
+        /*shadows*/
+        --shadow-1: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px !important;
+        --shadow-2: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+        /*font sizes*/
+        --font-size-1: 50px !important;
+        --font-size-2: 32px !important;
+        --font-size-3: 28px !important;
+        --font-size-4: 25px !important;
+        --font-size-5: 22px !important;
+        --font-size-6: 20px !important;
+        --font-size-7: 19px !important;
+        --font-size-8: 17px !important;
+        --font-size-9: 14px !important;
+        /*colours*/
+        --turquoise: #0a9188!important;
+        --dark-turquoise: #025c56!important;
+        --yellow:#ffdd03!important;
+        --green:#15a94b!important;
+        --dark-green:#0a7832!important;
+        --light-light-light-blue: #e0efff !important;
+        --light-light-blue: #badcff !important;
+        --light-blue: #4796e6 !important;
+        --blue: #155fa9 !important;
+        --dark-blue: #0b439e !important;
+        --dark-grey: #212121 !important;
+        --light-light-red: #ffe0e0 !important;
+        --red: #A50C0C !important;
+        --dark-red: #911111 !important;
+        --dark-dark-red: #610000 !important;
+        --light-light-grey: #e0e0e0 !important;
+        --light-grey: #c2c2c2;
+        --grey: #8c8c8c !important;
+    }
+</style>
+<DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Rory J Holbrook</title>
+    @RenderSection("head", required: false)
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link defer href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link async rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="~/css/main.min.css" />*@
+    <bundle name="wwwroot/css/main.min.css" />
+@*    <link rel="stylesheet" href="~/css/website.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/about.css" />
+    <link rel="stylesheet" href="~/css/construction.css" />
+    <link rel="stylesheet" href="~/css/haulage.css" />
+    <link rel="stylesheet" href="~/css/variation-styles.css" />
+    <link rel="stylesheet" href="~/css/navigation-menu.css" /> 
+    <link rel="stylesheet" href="~/css/snippets.css" />
+    <link rel="stylesheet" href="~/css/slick-slider.css" />
+    <link rel="stylesheet" href="~/css/slick-theme.css" />*@
+</head>
+<body>
+    <div id="header-content" class="d-lg-block d-none">
+        <div class="navbar-grid-container">
+            <div class="navbar-logo">
+                <a href="@ConfigurationManager.AppSettings["Home"]">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "logo-img",ImageName="rjh-logo", ImageDescription = "Rory J Holbrook logo with text spelling the business name", DisableLazyLoading = true}'/>
+                </a>
+            </div>
+            <div class="navbar-social">
+                <div id="social-content" class=" form-inline">
+                    <a target="_blank" class="d-flex" href="@ConfigurationManager.AppSettings["Facebook"]">
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img",ImageName="facebook-icon-blue", ImageDescription = "Blue Facebook icon", DisableLazyLoading = true}'/>
+                        <p class="social-text">Facebook</p>
+                     </a>
+                    <a target="_blank" class="d-flex" href="@ConfigurationManager.AppSettings["LinkedIn"]">
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img pl-3",ImageName="linked-in-icon-blue", ImageDescription = "Blue Linked In icon", DisableLazyLoading = true}'/>
+                        <p class="social-text">LinkedIn</p>
+                     </a>
+                     <a target="_blank" class="d-flex" href="tel:01963 718306">
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img pl-3",ImageName="call-icon-blue", ImageDescription = "Blue telephone icon", DisableLazyLoading = true}'/>
+                        <p class="social-text">Phone</p>
+                     </a>
+                     <a target="_blank" class="d-flex" href="mailto:sales@holbrookgroup.com">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img pl-3",ImageName="email-icon-blue", ImageDescription = "Blue telephone icon", DisableLazyLoading = true}'/>
+                        <p class="social-text">Email</p>
+                     </a>
+                </div>
+            </div>
+            <div class="navbar-search">
+                <section role="search" data-ss360="true" id="search-box-container">
+                    <input type="search" id="searchBox" placeholder="Enter keywords">
+                    <button id="searchButton"></button>
+                </section>
+            </div>
+            <div class="navbar-fors">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "fors-gold",ImageName="fors-gold-logo-horizontal", ImageDescription = "FORS Gold horizontal logo banner", DisableLazyLoading = true}'/>
+            </div>
+        </div>
+    </div>
+    <partial name="_NavBar" />
+    <div class="w-100">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <div class="toggle-small-screen-search p-3">
+        <span class="f-8"><i class="fas fa-search"></i><small><i class="fas fa-chevron-down pl-2 pr-2"></i></small></span>
+    </div>
+    <div class="bg-light w-100" id="small-screen-search">
+        <section role="search" data-ss360="true" id="search-box-container" class="mt-0">
+            <input type="search" id="searchBox" placeholder="Enter keywords" style="border:1px solid gray;">
+            <button id="searchButton"></button>
+        </section>
+    </div>
+    <div class="mobile-nav-bar">
+        <a class="mobile-nav-phone" href="tel:01953718306">
+            <i class="fas fa-mobile"></i>
+            <span>Phone</span>
+        </a>
+         <a class="mobile-nav-email" href="@ConfigurationManager.AppSettings["Contact"]">
+           <i class="fas fa-envelope"></i>
+            <span>Email</span>
+        </a>
+         <a class="mobile-nav-haulage" href="@ConfigurationManager.AppSettings["HaulageServices"]">
+           <i class="fas fa-truck-loading"></i>
+            <span>Haulage</span>
+        </a>
+         <a class="mobile-nav-construction" href="@ConfigurationManager.AppSettings["ConstructionServices"]">
+            <i class="fas fa-building"></i>
+            <span>Construction</span>
+        </a>
+    </div>
+    <div id="scroll-up-btn">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    <partial name="_Footer" />
+
+    <script>var highlightNavButtonNames = '@ViewData["NavButtonNames"]';</script>
+    @*<script type="text/javascript" src="/js/main.min.js"></script>*@
+    <bundle name="wwwroot/js/main.min.js" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/js-cookies.js"></script>
+    <script src="~/js/slick-slider.js"></script>
+    <script src="~/js/slick-slider-additions.js"></script>
+    <script src="~/js/website.js.js" asp-append-version="true"></script>
+    <script src="/js/lazy-loading.min.js" async=""></script>*@
+    <script defer src="https://js.sitesearch360.com/plugin/bundle/1466.js"></script>
+    <script type="text/javascript">
+        var ss360Config = {
+            siteId: 'www.roryjholbrook.co.uk',
+            searchBox: { selector: '#searchBox' }
+        };
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

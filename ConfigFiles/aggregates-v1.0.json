@@ -1,0 +1,290 @@
+[
+  {
+    "Category": "primary",
+    "AggregateName": "Soft Sand",
+    "StartingPrice": "24.35",
+    "IsMostPopular": "TRUE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "Sharp Sand",
+    "StartingPrice": "25.85",
+    "IsMostPopular": "TRUE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "4/10mm Natural Gravel",
+    "StartingPrice": "35.95",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "10/20mm Natural Gravel",
+    "StartingPrice": "35.95",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "10/20mm Primary Gravel",
+    "StartingPrice": "37.50",
+    "IsMostPopular": "TRUE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "10mm Ballast",
+    "StartingPrice": "28.95",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "20mm Ballast",
+    "StartingPrice": "28.95",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "4/10mm Primary Shingle",
+    "StartingPrice": "37.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "10/20mm Primary Shingle",
+    "StartingPrice": "37.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "20/40mm Primary Shingle",
+    "StartingPrice": "30.30",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "MOT Type 1 Limestone",
+    "StartingPrice": "30.30",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "Type 3 Limestone",
+    "StartingPrice": "33.75",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "primary",
+    "AggregateName": "70mm Clean Limestone",
+    "StartingPrice": "27.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "AS Dug Sand Fill",
+    "StartingPrice": "10.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "Screened Sand Fill",
+    "StartingPrice": "12.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "Crushed Asphalt",
+    "StartingPrice": "24.30",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "Road Planings",
+    "StartingPrice": "24.30",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "Screened Topsoil",
+    "StartingPrice": "12.45",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "Type 1 Crushed Concrete",
+    "StartingPrice": "25.05",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "UB Blend SHW Series 800 Type 1 Limestone",
+    "StartingPrice": "25.85",
+    "IsMostPopular": "TRUE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "recycled",
+    "AggregateName": "6F2 Crushed Hardcore",
+    "StartingPrice": "19.90",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "decorative",
+    "AggregateName": "40mm Black Ice Gravel",
+    "StartingPrice": "155.00",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "decorative",
+    "AggregateName": "20mm Cotswold Stone",
+    "StartingPrice": "140.00",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "decorative",
+    "AggregateName": "20mm Plum Slate",
+    "StartingPrice": "85.00",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "decorative",
+    "AggregateName": "20mm Sky Marble Gravel",
+    "StartingPrice": "145.00",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "decorative",
+    "AggregateName": "14mm Blue Granite",
+    "StartingPrice": "145.00",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "tonne"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "20mm Ballast - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "Sharp Sand - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "Soft Sand - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "4/10mm Natural Gravel - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "ImageDescription": "Test description",
+    "AggregateName": "10/20mm Natural Gravel - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "20mm Cotswold Chippings - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "Type 1 Limestone - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "UB Blend SHW Series 800 Type 1 Limestone - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "Screened Topsoil - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "Limestone Dust - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "Type 1 Crushed Concrete - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bulk bags",
+    "AggregateName": "6F2 Crushed Hardcore - Bulk Bag",
+    "StartingPrice": "55",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "bag"
+  },
+  {
+    "Category": "bagged cement",
+    "AggregateName": "Blue Circle General Purpose Cement",
+    "StartingPrice": "4.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "25kg bag"
+  },
+  {
+    "Category": "bagged cement",
+    "AggregateName": "Rugby Premium Cement",
+    "StartingPrice": "4.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "25kg bag"
+  },
+  {
+    "Category": "bagged cement",
+    "AggregateName": "Hanson General Purpose Cement",
+    "StartingPrice": "4.50",
+    "IsMostPopular": "FALSE",
+    "QuantityUnit": "25kg bag"
+  }
+]

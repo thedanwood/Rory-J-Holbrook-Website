@@ -1,0 +1,62 @@
+﻿@page "/construction-services"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Construction Services";
+    ViewBag.NavButtonNames = "construction-services-nav-btn";
+}
+@section head{
+    <meta name='description' content='Our construction services include aggregate, material removal, earthwork and recycling services.' />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="grab-moving-aggregates", ImageDescription = "22 tonne excavator heaping muckaway"}'/>
+<div class="page-name">
+    <h1>CONSTRUCTION SERVICES</h1>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Construction Services</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_aggregateservicestile" model="(int)TileStyles.SquareZoom"/>
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_materialremovalservicestile" model="(int)TileStyles.SquareZoom"/>
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_earthworksservicestile" model="(int)TileStyles.SquareZoom"/>
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/construction/_recyclingservicestile" model="(int)TileStyles.SquareZoom"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See Our Haulage Services"
+        })
+
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 1, cssStyleEnum = (int)Enums.CssStyles.LightGrey})
+    </div>
+</div>
+<div class="bg-dark">
+    <div class="left-right-padding top-bottom-padding">
+        <div class="row">
+            <partial name="partials/sliders/_standardsandpartnerssliders" model="@(int)Enums.Variations.Variation2" />
+        </div>
+    </div>
+</div>

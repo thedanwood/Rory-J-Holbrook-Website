@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "acclaim-construction-line",
+    ImageDescription = "Acclaim Accreditation, Construction Line and MPQC logos",
+    Title = "Accreditations",
+    ButtonText = "See Our Accreditations",
+    ButtonLink = ConfigurationManager.AppSettings["Accreditations"],
+    TileStyleEnum = Model,
+})

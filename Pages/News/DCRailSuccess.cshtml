@@ -1,0 +1,10 @@
+﻿@page "/news/dc-rail-success"
+@{
+    ViewBag.Title = "DC Rail Success";
+    ViewBag.NavButtonNames = "news-nav-btn";
+}
+}
+@section head{
+    <meta name="robots" content="noindex">
+}
+@await Component.InvokeAsync("NewsPage", new { newsArticlePageName = "dc-rail-success"})

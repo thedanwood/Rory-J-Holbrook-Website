@@ -1,0 +1,89 @@
+﻿@page "/aggregates-norfolk"
+@using RJHWebsite.Enums
+@using RJHWebsite.Pages.Shared.Components.AggregateAdvertSnippet
+@using RJHWebsite.Pages.Shared.Components.ReviewsSnippet;
+@using System.Configuration
+﻿@{
+    ViewBag.Title = "Aggregates Norfolk";
+    ViewBag.NavButtonNames = "construction-services-nav-btn,aggregates-nav-btn";
+}
+@section head{
+    <meta name='description' content='Proudly supplying norfolk with all types of aggregates. Whatever your requirements, we are here to help.' />
+}
+<style>
+    .aggegates-norfolk-location-img{
+        height: 250px;
+        float: left;
+        width: auto;
+        float: left;
+        padding: 0 2% 2% 0px;
+    }
+</style>
+<div class="left-right-padding top-bottom-padding top-bottom-padding-sm">
+    <h1 class="body-title">Aggregates Norfolk</h1>
+    <div class="row row-plr-0">
+        <div class="col-lg-6 col-12">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 mb-lg-0 mb-2",ImageName="norfolk-aggregates", ImageDescription = "Cut and fill subbase placement operation", IncludeOtherSizes = false}'/>
+        </div>
+        <div class="col-lg-6 col-12 pl-lg-4">
+            <h2 class="body-title">
+                Norfolks #1 Aggregate Supplier
+            </h2>
+            <p>
+                As the top <a href="https://en.wikipedia.org/wiki/Construction_aggregate" target="_blank">aggregates</a> supplier in norfolk, Rory J Holbrook strives to continue providing the excellant and reliable local and national 
+                aggregate delivery and collection services in Norwich, Wymondham, Attleborough, Holt, Swaffham, Deterham, North Walsham and beyond.
+                <br/><br/>
+                The aggregates provided by Rory J Holbrook are always created or recycled within the local area 
+                and the UK. Recyled materials such as type 1 and concrete are processed and recycled in our innovative 
+                recycling centre located at Lakenheath. This means that there is a reduction in commercial and construction 
+                waste in the industry, which as an environmentally conscious company, we feel strongly about.
+                <br/><br/>
+                <a class="btn btn-green btn-lg p-3" href="@ConfigurationManager.AppSettings["AggregateSupply"]"><i class="fas fa-tag pr-2"></i>Get a Free Aggregate Quote</a>
+                <br /><br />
+            </p>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("AggregateAdvertSnippet", new AggregateAdvertSnippetViewComponent.AggregateAdvertViewModel(){ 
+    title = "Norfolk Aggregate Supplies",
+    subTitle = "Explore our primary and secondary aggregate supplies"
+})
+<div class="left-right-padding">
+    <div class=" top-bottom-padding top-bottom-padding-md">
+        <p>
+            We specialise in providing quality, cost effective products and services to the construction, civil engineering and building industries.
+            Our main products include primary aggregates, decorative aggregates, recycled aggregates, bulk aggregates and cements.
+            We are proud to provide the region with over 250,000 tonnes of aggregate each month.
+        </p>
+        <h3>Primary Aggregates</h3>
+    </div>
+    <div class=" top-bottom-padding top-bottom-padding-md">
+        <h2 class="body-title">
+            Norwich, East Harling - Transport Office Location
+        </h2>
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                 <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel() {ImageClassName = "aggegates-norfolk-location-img", ImageName = "aggregates-norfolk", ImageDescription = "Aggregate supplies photo of bulk aggregates being offloaded at Lakenheath", IncludeOtherSizes = false}'/>
+                <p>
+                    Our <a href="/locations#location-roudham">transport office location</a> at Roudham Road in Norwich, Norfolk, allows us to fulfil the requirements of our loyal customers while maintaining
+                    sufficient and effective delivery and fulfilment of primary, recycled, decorative and bulk bag aggregates.
+                    <br/><br/>
+                    With very easy and quick transport links to Norfolk towns and cities, it has become easier than every for
+                    our aggregate supply services to consistently improve and satisfy our extensive customer base.
+                </p>
+            </div>
+            <div class="col-lg-6 col-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2891.6885448364756!2d0.8908544445831361!3d52.44996960784151!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d9ceb1e52963ff%3A0x9bf3371238bc36f7!2sRoudham+Rd%2C+Norwich!5e0!3m2!1sen!2suk!4v1477547697502" style="border: 0;width:100%;height:100%" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </div>
+ 
+</div>
+@*<div class="">
+    @await Component.InvokeAsync("ReviewsSnippet", new ReviewsSnippetViewComponent.ReviwsViewModel()
+    {
+        Title = "Local Norwich and Norfolk Reviews",
+        SubTitle="See what our local customers think",
+        CssStyleEnum = (int)CssStyles.LightBlue
+    })
+</div>*@

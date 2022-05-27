@@ -1,0 +1,50 @@
+﻿@model int
+@using RJHWebsite.Enums
+@{ 
+    string standardsHeading = "";
+    string standardsSubHeading = "";
+    string partnersHeading = "";
+    string partnersSubHeading = "";
+    switch (Model)
+    {
+        case (int)Variations.Variation1:
+        default:
+            standardsHeading = "Working to haulage industry standards";
+            standardsSubHeading = "Rory J Holbrook are proud to comply with the highest industry standards outlined by associations such as RHA and FTA.";
+            partnersHeading = "Working with industry leading partners";
+            partnersSubHeading = "It is to the credit to our past that Rory J Holbrook can align our services with industry-leading partners such as Tarmac and Cemex.";
+            break;
+        case (int)Variations.Variation2:
+            standardsHeading = "Proudly performing to the highest industry standards";
+            standardsSubHeading = "Industry standards from RHA and FORS are consistently followed to establish trust while delivering high quality services and products";
+            partnersHeading = "Working amongst the industry leaders";
+            partnersSubHeading = "Rory J Holbrook ltd are proud to have worked and continue to work alongside respected companies such as Cemex, Tarmac and Lagan. ";
+            break;
+        case (int)Variations.Variation3:
+            standardsHeading = "Following industry recognised quality guidelines";
+            standardsSubHeading = "Rory J Holbrook work with industry standards and quality guidelines from associations like TASCC and Construction Line.";
+            partnersHeading = "Proudly working alongside industry leaders";
+            partnersSubHeading = "As an industry leader ourselves, working alongside companies such as Tarmac and Cemex is invaluable for innovation and progession of the industry.";
+            break;
+    }
+}
+<div class="col-md-6 col-12">
+    <div class="white-segment">
+        <h4>@standardsHeading</h4>
+        <hr />
+        <p>@standardsSubHeading</p>
+        <div class="industry-standards-slider-container">
+            <partial name="partials/sliders/_IndustryStandardsSlider" />
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-12 mt-4 mt-md-0">
+    <div class="white-segment">
+        <h4>@partnersHeading</h4>
+        <hr />
+        <p>@partnersSubHeading</p>
+        <div class="partners-slider-container">
+            <partial name="partials/Sliders/_PartnersSlider" />
+        </div>
+    </div>
+</div>

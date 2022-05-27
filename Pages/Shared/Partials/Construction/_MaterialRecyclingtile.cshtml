@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "recycling-centre-lakenheath",
+    ImageDescription = "Waste material being recycled into usable aggregates",
+    Title = "Material Recycling",
+    ButtonText = "See Our Material Recycle Services",
+    ButtonLink = ConfigurationManager.AppSettings["MaterialRecycling"],
+    TileStyleEnum = Model,
+})

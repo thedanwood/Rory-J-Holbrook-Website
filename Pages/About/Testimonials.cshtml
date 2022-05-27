@@ -1,0 +1,162 @@
+﻿@page "/about/testimonials"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Testimonials";
+    ViewBag.NavButtonNames = "about-nav-btn,testimonials-nav-btn";
+}
+@section head{
+    <meta name='description' content='Throughout the years Rory J Holbrook Ltd have worked alongside many well established companies helping to resurface the worlds leading airports.' />
+    <meta name='keywords' content='airport, colas, lagan, Volker, runway, black, tipper, conveyor floor' />
+}
+<div class="page-name">
+    <h1>TESTIMONIALS</h1>
+</div>
+
+<div class="faded-img-behind" title="Faded 8 wheelers image behind main content">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1 col-12">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["About"]">About</a></li>
+                        <li class="breadcrumb-item active"><a href="@ConfigurationManager.AppSettings["Testimonials"]">Testimonials</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="top-bottom-padding">
+        <div class="col-xl-10 offset-xl-1 col-12">
+            <div class="row testimonial-div mt-0">
+                <div class="col-md-4 col-12 testimonial-img-col">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "testimonial-img",ImageName="lagan-airport-maintenance", ImageDescription = "Lagan aisport maintenance logo",IncludeOtherSizes = false}'/>
+                </div>
+                <div class="col-md-8 col-12 ">
+                    <div class="testimonial-text">
+                        <p>
+                            From the award of this Contract, the team and I realised that one of the most challenging parts of this project was the delivery of the material from the off-site batching plant to the site. Having completed numerous projects with your company we realised for the project to be a success we would require a dedicated fleet of trucks to work alongside the site team to deliver this for the client.
+                            <br /><br />
+                            Now that the project has been completed successfully and on time, I would just like to say on behalf of Lagan a big thank you to all your staff, especially the drivers who again delivered a 1st class service and worked collectively with the Lagan site team to make this project a success.
+                            <br /><br />
+                            I appreciate the investment you make as a company regarding the lorries supplied for this project which ensured the quality of the material delivered to site each day.
+                            <br /><br />
+                            We are looking forward to having you on board for the next project.
+                            <br /><br />
+                            <b>Kieran Mcllhatton</b> - <i>Director</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-10 offset-xl-1 col-12">
+            <div class="row testimonial-div">
+                <div class="col-md-4 col-12 order-md-last testimonial-img-col">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "testimonial-img",ImageName="tarmac-logo", ImageDescription = "Tarmac logo",IncludeOtherSizes = false}'/>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="testimonial-text">
+                        <p>
+                            I would like to take this opportunity to record my appreciation to Rory J Holbrook Ltd for the professional
+                            and supportive manner adopted by them over the years that our two Companies have been working together
+                            <br /><br />
+                            Over the last 26  years we have had the pleasure of participating in a number of major road and airport projects with you and look forward to many more.
+                            <br /><br />
+                            <b>John McConologue</b> - <i>Mobile Plant Manager</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-10 offset-xl-1 col-12">
+            <div class="row testimonial-div">
+                <div class="col-md-4 col-12 testimonial-img-col">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "testimonial-img",ImageName="colas-logo", ImageDescription = "Colas logo",IncludeOtherSizes = false}'/>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="testimonial-text">
+                        <p>
+                            I just wanted to drop you a line to thank you and your team on completion of a fantastic five-month project at Coningsby. Undertaken with the
+                            usual efficiency we have come to expect from your Company.
+                            <br /><br />
+                            King regards
+                            <br /><br />
+                            For and on behalf of <b>COLAS Ltd</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-10 offset-xl-1 col-12">
+            <div class="row testimonial-div">
+                <div class="col-md-4 col-12 order-md-last testimonial-img-col">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "testimonial-img",ImageName="lagan-construction-group-logo", ImageDescription = "Lagan construction group logo",IncludeOtherSizes = false}'/>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="testimonial-text">
+                        <p>
+                            In recent years we have successfully worked with Rory J Holbrook Ltd on a number of significant projects:
+                            <br /><br />
+                            <ul>
+                                <li>London City Airport - Runway upgrade</li>
+                                <li>RAF Marham - Runway upgrade</li>
+                                <li>RAF Northolt - Runway upgrade</li>
+                                <li>Heathrow Aiport - Runway and Taxiway resurfacing</li>
+                            </ul>
+                            <br />
+                            Our experience of working with Rory J Holbrook Ltd is that they are a professional company with reliable people and equipment, who work
+                            collaboratively with their clients.
+                            <br /><br />
+                            For and on behalf of <b>Lagan Constuction Group</b>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="bg-dark">
+        <div class="left-right-padding top-bottom-padding">
+            <h4 class="text-white" >Here at Rory J Holbrook, we are consistently performing to the highest standards</h4>
+            <hr />
+            <div class="row">
+                <partial name="partials/sliders/_standardsandpartnerssliders" model="@(int)Variations.Variation2" />
+            </div>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "testimonials",
+    ParentPage = "about",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Blue,
+    Title = "Find Our More About Us"
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "See Our Construction Services",
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "See Our Haulage Services",
+})
+
+@section scripts{
+    <script>
+        $('#about-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}
+
+

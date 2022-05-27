@@ -1,0 +1,74 @@
+﻿@page "/plant-services/low-loader-hire"
+@using System.Configuration
+@{
+    ViewBag.Title = "Low Loader Hire";
+    ViewBag.NavButtonNames = "haulage-services-nav-btn,low-loader-nav-btn";
+}
+@section head{
+    <meta name='description' content='Low loader hire for any type of move you may require, from oversized loads to your smaller machines, please get in contact for a personalised quote.' />
+    <meta name='keywords' content='4 axle, 3 axle, machines, diggers, local, long distance, flatbed, oversized' />
+}
+<div class="main-img">
+     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="low-loader-hire", ImageDescription = "Low loader transporting large cargo for a customer"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Low Loader</h1>
+                <p class="img-overlay-text">
+                    With a mixture of 3 and 4 axel trailers, no load is too big or too small.
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=low-loader" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Low Loader Hire Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb pl-0">
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage</a></li>
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["PlantServices"]">Plant Services</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Low Loader</a></li>
+                </ol>
+                <hr class="mb-0" />
+            </nav>
+            <div class="text-justify top-bottom-padding">
+                <h2 class="body-title ">Low Loader Hire</h2>
+                <p>
+                    Low loaders are ideal for the movement of <a href="@ConfigurationManager.AppSettings["PlantHire"]">construction plant</a> and equipment anywhere in the country at your convince. At Rory J Holbrook Ltd we manage special loads, often oversized or high value, typically moving plant such as crushers, screeners and pavers between sites.
+                <p>
+                <h2 class="body-title ">How to Book a Movement</h2>
+                <p>
+                    Available 24/7, 365 days a year we offer highly trained and experienced drivers to move any machine you require, whether this be big or small, for a specialised quote please contact our experienced team on <a href="tel:01953718306">01953 718306</a>.
+                </p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-lg-75",ImageName="low-loader-movement", ImageDescription = "Low loader transporting small cargo for a customer",IncludeOtherSizes = false}'/>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See Our Construction Services"
+        })
+    </div>
+</div>
+
+@await Component.InvokeAsync("TestimonialsSnippet", new
+{
+    snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    variationEnum = (int)Enums.Variations.Variation2,
+    cssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+})
+
+@section scripts {
+
+    <script>
+        $('#road-and-rail-haulage-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

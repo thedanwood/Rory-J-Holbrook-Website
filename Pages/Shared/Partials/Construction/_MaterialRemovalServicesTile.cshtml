@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "muckaway-grab-hire",
+    ImageDescription = "Hazardous and contaminated waste being removed from a site in Attelborough",
+    Title = "Material Removal Services",
+    ButtonText = "View Our Material Removal Services",
+    ButtonLink = ConfigurationManager.AppSettings["MaterialRemovalServices"],
+    TileStyleEnum = Model
+})

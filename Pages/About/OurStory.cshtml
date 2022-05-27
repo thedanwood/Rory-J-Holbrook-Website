@@ -1,0 +1,111 @@
+﻿@page "/about/our-story"
+@using System.Configuration
+
+@{
+    ViewBag.Title = "Our Story";
+    ViewBag.NavButtonNames = "about-nav-btn,our-story-nav-btn";
+}
+@section head{
+    <meta name='description' content='Founded in 1988 by Rory Holbrook, the company has grown into a fleet in excess of 60 lorries. With sites based all over East Anglia this makes us number one for haulage and aggregate supplies.' />
+    <meta name='keywords' content='lorries, tippers, 8 wheeler, artic, brandon, lakenheath, roudham, Norwich' />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="8-wheelers-and-artics", ImageDescription = "8 wheel lorry working on airport project"}'/>
+<div class="page-name">
+    <h1>OUR STORY</h1>
+</div>
+<div class="faded-img-behind" title="Faded 8 wheelers image behind main content">
+    <div class='row'>
+        <div class='col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12 pl-lg-0 pl-3 pr-lg-0 pr-3'>
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["About"]">About</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Our Story</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-embedded-left img-in-text",ImageName="artic-insulated-conveyor-floor-hire", ImageDescription = "Artic vehicle at Lakenheath Site"}'/>
+                <div class='our-story-text-container'>
+                    <p>
+                        Our company was founded in 1988 by Mr Rory J Holbrook, starting with one man and one lorry, partnered
+                        with a passion for the industry.
+                        <br /><br />
+                        Rory quickly developed an understanding of what customers desired; a quick hassle free service with a
+                        strong working relationship. Because of this, our customer base flourished, providing the opportunity
+                        for the business to grow into the success it is today.
+                        <br /><br />
+                        By adding several more lorries to the fleet, Rory then saw the opportunity to fulfil larger contracts
+                        as well as the local aggregate deliveries which we had already been specialising in.
+                        <br /><br />
+                        After the first successful resurfacing job we were added to the approved runway team, meaning we were
+                        nationally recognised as an established company in our field. This was the starting point for years of
+                        future growth and successful runway projects.
+                        <br /><br />
+                        Fast forward 30 years and many successful airport jobs later, we have just finished our latest project,
+                        working alongside Colas. Based at RAF Coningsby, we have provided 10 articulated tippers for 3 consecutive
+                        months to assist in the laying of the new runway. With the huge success of this project we will shortly
+                        beginning work at RAF Lossiemouth.
+                        <br /><br />
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-embedded-right img-in-text",ImageName="plant-hire", ImageDescription = "Doosan DL450 at Lakenheath"}'/>
+                        Since being founded in 1988, we have developed a large customer base all over the UK. With sites based
+                        around East Anglia, we have become one of the largest suppliers of <a href='@ConfigurationManager.AppSettings["AggregateSupply"]'>Aggregate</a> and <a href='@ConfigurationManager.AppSettings["Muckaway"]'>muckaway</a> in the county.
+                        In 2016 Rory opened railheads in <a href='@ConfigurationManager.AppSettings["Locations"]'>Norwich and Brandon</a>. Due to this operational expansion it allowed us to
+                        bring thousands of tonnes of various aggregates into the county by rail. Not only does this help us to
+                        supply the county, but it also helps to reduce the carbon footprint of our Company. Read more about our
+                        environmental policy <a href="@ConfigurationManager.AppSettings["Responsibilities"]">here</a>.
+                        <br /><br />
+                        Later in 2016 a large remodel of RAF Marham began. With the recent addition of the Brandon railhead,
+                        material was brought down from quarries in the north and offloaded into the railhead. This material was
+                        then hauled from the railhead to fulfil the aggregate demand needed to complete the contract at RAF Marham.
+                        <br /><br />
+                        In early 2019, after a successful 3 year working relationship with contractors on RAF Marham, we were
+                        approached to work at RAF Lakenheath and to supply materials to this project. With several years’ work
+                        to be completed on the base, thousands of tonnes of material will continue to be brought into site and
+                        hauled to the project.
+                        <br /><br />
+                        In late 2019, Rory expanded the business further by opening a buzzing <a href='@ConfigurationManager.AppSettings["RecyclingServices"]'>recycling</a> centre located at Lakenheath.
+                        With the ideal location of this site, material is bought in from all over East Anglia and the
+                        Cambridgeshire area with ease. As well as tipping facilities, the recycling centre provides the infrastructure
+                        to deliver aggregates to the local public and companies all over the UK.
+                        <br /><br />
+                        Over the 30 years of operation we have become one of the largest suppliers of aggregates across the UK. With
+                        a fleet in excess of 60 vehicles, ranging from 8 wheel <a href='@ConfigurationManager.AppSettings["TipperHire"]'>tippers</a> to articulated lorries, we aim to continue
+                        to demonstrate our strong working relationship and exceed customer needs across the entirety of the UK.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "OurStory",
+    ParentPage = "about",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "Find Our More About Us"
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "See Our Construction Services",
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "See Our Haulage Services",
+})
+@section scripts{
+    <script>
+        $('#about-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

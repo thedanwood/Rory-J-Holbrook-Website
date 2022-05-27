@@ -1,0 +1,127 @@
+﻿@using System.Configuration
+<footer class="bg-blue row">
+    <div class="col-lg-3 col-md-4 col-12 text-md-left text-center mb-md-3 mb-5">
+        <h4 class="footer-header"><a href="@ConfigurationManager.AppSettings["Contact"]">Contact Us</a></h4>
+        <hr />
+        <p class="footer-text">
+            <a href="/contact">
+                Roudham Road
+                <br />
+                East Harling
+                <br />
+                Attleborough
+                <br />
+                Norfolk
+                <br />
+                NR16 2QN
+            </a>
+            <br />
+            Phone: <a class="footer-link" href="tel:01953718306">01953 718306</a> / <a class="footer-link" href="tel:01953718506">01953 718506</a>
+            <br />
+            Fax: <a class="footer-link" href="tel:01953 718403">01953 718403</a>
+            <br />
+            Email: <a class="footer-link" href="mailto:sales@holbrookgroup.co.uk">sales@holbrookgroup.co.uk</a>
+            <br />
+            <a class="btn btn-light mt-3" href="@ConfigurationManager.AppSettings["Contact"]">Contact Us Via Our Form</a>
+        </p>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <h4 class="footer-header"><a href="@ConfigurationManager.AppSettings["AggregateSupply"]">Our Aggregate Selection</a></h4>
+        <hr />
+        <ul class="footer-text-ul">
+            <li>
+                <a href="@ConfigurationManager.AppSettings["AggregateSupplyPrimary"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="primary-aggregates-xs", ImageDescription = "Sharp sand representing the primary aggregates selection", IncludeOtherSizes = false}'/>
+                    <p>Primary Aggregates</p>
+                </a>
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["AggregateSupplyRecycled"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="recycled-aggregates-xs", ImageDescription = "Sharp sand representing the recycled aggregates selection", IncludeOtherSizes = false}'/>
+                    <p>Recycled Aggregates</p>
+                </a>
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["AggregateSupplyDecorative"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="decorative-aggregates-xs", ImageDescription = "Black ice gravel representing the decorative aggregates", IncludeOtherSizes = false}'/>
+                    <p>Decorative Aggregates</p>
+                </a>
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["AggregateSupplyBulk"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="bulk-bag-aggregates-xs", ImageDescription = "Sharp sand bulk bag demonstrating the aggregate selection", IncludeOtherSizes = false}'/>
+                    <p>Bulk Bags</p>
+                </a>
+
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["AggregateSupplyCement"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="bagged-cement-aggregates-xs", ImageDescription = "Blue circle general purpose cement representing our bagged cements", IncludeOtherSizes = false}'/>
+                    <p>Bagged Cement</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <h4 class="footer-header"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Our Haulage Services</a></h4>
+        <hr />
+        <ul class="footer-text-ul">
+            <li>
+                <a href="@ConfigurationManager.AppSettings["RoadHaulageServices"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="road-haulage-xs", ImageDescription = "8 wheel tipper demonstrating road haulage services", IncludeOtherSizes = false}'/>
+                    <p>Road Haulage</p>
+                </a>
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["RailHaulageServices"]">
+                     <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="rail-haulage-xs", ImageDescription = "Grab vehicle showing the rail haulage/railhead services", IncludeOtherSizes = false}'/>
+                    <p>Rail Haulage</p>
+                </a>
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["PlantServices"]">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="plant-services-xs", ImageDescription = "Plant services represented by plant hire image", IncludeOtherSizes = false}'/>
+                    <p>Plant Services</p>
+                </a>
+            </li>
+            <li>
+                <a href="@ConfigurationManager.AppSettings["NonTippingConveyorFloor"]">
+                    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "footer-small-img",ImageName="non-tipping-conveyor-floor-xs", ImageDescription = "innovative non tipping conveyor floor hire services represented by a grab with the system in placee", IncludeOtherSizes = false}'/>
+                    <p>Non Tipping Conveyor Floor</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-3 mb-3 mt-lg-0 mt-5 text-md-left text-center">
+        <h4 class="footer-header"><a href="@ConfigurationManager.AppSettings["Locations"]">Main Office</a></h4>
+        <hr />
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2891.6885448364756!2d0.8908544445831361!3d52.44996960784151!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d9ceb1e52963ff%3A0x9bf3371238bc36f7!2sRoudham+Rd%2C+Norwich!5e0!3m2!1sen!2suk!4v1477547697502" width="100%" height="235" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+    </div>
+
+    <div class="col-12 mb-0 mt-lg-0 mt-3 m-lg-0 m-auto pt-lg-0 pb-lg-0 pt-4 pb-4 ">
+        <div class="row">
+            <div class="col-sm-4 col-12">
+                <p class="footer-link">&copy; @DateTime.Now.Year - Rory J Holbrook Ltd</p>
+            </div>
+            <div class="col-sm-4 col-12">
+                 <p>
+                    <a href="@ConfigurationManager.AppSettings["TermsAndConditions"]" class="footer-link mr-4">Terms and Conditions</a>
+                    <a href="@ConfigurationManager.AppSettings["PrivacyPolicy"]" class="footer-link">Privacy Policy</a>
+                </p>
+            </div>
+             <div class="col-sm-4 col-12">
+                <div id="social-content-footer" class="float-lg-right m-lg-0 m-auto">
+                    <a href="@ConfigurationManager.AppSettings["Facebook"]" target="_blank" class="social">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img",ImageName="facebook-icon-white-xs", ImageDescription = "White facebook icon which takes users to facebook page", IncludeOtherSizes = false}'/>
+                    </a>
+                    <a href="@ConfigurationManager.AppSettings["LinkedIn"]" target="_blank" class="social">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img",ImageName="linked-in-icon-white-xs", ImageDescription = "White linked inicon which takes users to linked in page", IncludeOtherSizes = false}'/>
+                    </a>
+                    <a href="tel:01953718306" class="social">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "social-icon-img",ImageName="call-icon-white-xs", ImageDescription = "White phone icon which opens phone platform to call the office", IncludeOtherSizes = false}'/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

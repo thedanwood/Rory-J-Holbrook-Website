@@ -1,0 +1,106 @@
+﻿@page "/earthworks/bulk-earthworks"
+@using System.Configuration
+@{
+    ViewBag.Title = "Bulk Earthworks";
+    ViewBag.NavButtonNames = "construction-services-nav-btn,earthworks-nav-btn";
+}
+@section head{
+    <meta name='description' content='With our selection of earthwork plant and machinery we can move large amounts of material with ease.' />
+    <meta name='keywords' content='earthworks, bulk earthworks, gps dozers' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="earthworks-services", ImageDescription = "Liebherr 736 clearing muckaway on site"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Bulk Earthworks</h1>
+                <p class="img-overlay-text">
+                    Helping to construct some of the UK’s most prestigious infrastructure projects.
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]" class="btn btn-blue img-overlay-btn">Earthworks Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+             <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction Services</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["EarthworksServices"]">Earthworks Services</a></li>
+                        <li class="breadcrumb-item active"><a href="@ConfigurationManager.AppSettings["Earthwoks"]">Bulk Earthworks</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <h2 class="body-title f1">Earthworks</h2>
+                <div class="row row-plr-0">
+                    <div class="col-lg-6 col-12 order-lg-2">
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 mb-lg-0 mb-2",ImageName="bulk-earthworks", ImageDescription = "Bulk earthworks articulated dumper and GPS dozer next to eachother", IncludeOtherSizes = false}'/>
+                    </div>
+                    <div class="col-lg-6 col-12 pr-lg-4">
+                         <h2 class="body-title">
+                            Bulk Earthworks
+                        </h2>
+                        <p>
+                           Long established as industry leaders in <a href="@ConfigurationManager.AppSettings["Muckaway"]">muckaway</a> and <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregate supply</a>, Rory J Holbrook further aim to 
+                           support our industry partners by supplying a professional and well executed <strong>bulk earthwork</strong> service. 
+                           <br /><br />
+                           With our selection of <a href="@ConfigurationManager.AppSettings["PlantServices"]">earthwork plant</a> and machinery we can move large amounts of material with ease, 
+                           by also having GPS equip dozers and excavators the this can be done with the highest of accuracy’s 
+                           meeting even the strictest of designs. 
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-plr-0 mt-lg-5 mt-2">
+                    <div class="col-lg-6 col-12">
+                          <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 mb-lg-0 mb-2",ImageName="civil-engineering-earthworks", ImageDescription = "Cut and fill subbase placement operation", IncludeOtherSizes = false}'/>
+                    </div>
+                    <div class="col-lg-6 col-12 pl-lg-4">
+                        <h2 class="body-title">
+                            Civil Engineering 
+                        </h2>
+                        <p>
+                            Over the years Rory J Holbrook have completed numerous engineering projects country wide spanning; 
+                            Military, Aviation, Highways, Agriculture, Commercial and Industrial. 
+                            <br /><br />
+                            Our core civil engineering 
+                            capabilities are aggregate excavation and installation, cut and fill, deep basement excavations, 
+                            Crane Mats, Topsoil Stripping and Reduce Level Dig. With our in house surveying and  engineering 
+                            team we are able to undertake all setting out tasks without dependency on third party contactors 
+                            in turn reducing the risk of data error.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "earthworks",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "See Our Other Construction Services"
+        })
+    </div>
+</div>
+
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "View The Variety Of Haulage Services We Offer"
+})
+@section scripts {
+    <script>
+        $('#plant-hire-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

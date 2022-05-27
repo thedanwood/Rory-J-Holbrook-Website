@@ -1,0 +1,69 @@
+﻿@page "/about"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "About Us";
+    ViewBag.NavButtonNames = "about-nav-btn";
+}
+@section head{
+    <meta name='description' content='Meet our team, read our story or explore our testimonials and accreditations.' />
+}
+<div class="page-with-sidebar-container">
+    <div class="nav-page-main-image-container">
+        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="8-wheelers-and-artics", ImageDescription = "8 wheel lorry working on airport project"}'/>
+    </div>
+    <div class="page-name">
+        <h1>ABOUT US</h1>
+    </div>
+    <div class="page-with-sidebar-main">
+        <div class="row">
+            <div class="left-right-padding">
+
+                <div class="row mt-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb pl-0">
+                            <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="@ConfigurationManager.AppSettings["About"]">About Us</a></li>
+                        </ol>
+                        <hr class="mb-0" />
+                    </nav>
+                </div>
+
+                <div class="top-bottom-padding">
+                    <div class="nav-page-tile-container">
+                        <partial name="partials/about/_theteamtile" model="@(int)TileStyles.SquareZoom" />
+                    </div>
+                    <div class="nav-page-tile-container">
+                        <partial name="partials/about/_ourstorytile" model="@(int)TileStyles.SquareZoom" />
+                    </div>
+                    <div class="nav-page-tile-container">
+                        <partial name="partials/about/_testimonialstile" model="@(int)TileStyles.SquareZoom" />
+                    </div>
+                    <div class="nav-page-tile-container">
+                        <partial name="partials/about/_accreditationstile" model="@(int)TileStyles.SquareZoom" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-blue">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightBlue,
+            Title = "See Our Construction Services"
+        })
+    </div>
+</div>
+
+@await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar, numberOfArticles = 2, cssStyleEnum = (int)Enums.CssStyles.Dark })
+
+@section scripts{
+    <script>
+        $('#about-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}
+

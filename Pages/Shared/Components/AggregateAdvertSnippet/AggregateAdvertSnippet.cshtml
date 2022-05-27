@@ -1,0 +1,55 @@
+﻿@using System.Configuration
+@using RJHWebsite.Pages.Shared.Components.AggregateAdvertSnippet
+@model AggregateAdvertSnippetViewComponent.AggregateAdvertViewModel
+<div class="aggregates-advert top-bottom-padding top-bottom-padding-sm">
+    <div class="aggregates-advert-left">
+        <div class="aggregates-advert-info">
+            <h2 class="aggregates-advert-info-header"><b>@Model.title</b></h2>
+            <big><h3>@Model.subTitle</h3></big>
+            <p>
+                Other ranges of aggregates are available via special order supply.
+            </p>
+            <a href="@ConfigurationManager.AppSettings["ConstructionServices"]" id="aggregates-see-other-construction-services" style="color:#b2c2db"><hr /><i>Other construction services</i></a>
+        </div>
+
+        <div class="aggregate-primary-container">
+            <a class="aggregate-circle aggregate-primary" href="@ConfigurationManager.AppSettings["AggregateSupplyPrimary"]">
+                <p>PRIMARY</p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "home-aggregate-img",ImageName="primary-aggregates-xs", ImageDescription = "Primary aggregates icon image",IncludeOtherSizes = false}'/>
+            </a>
+        </div>
+        <div class="aggregate-recycled-container">
+            <a class="aggregate-circle aggregate-recycled" href="@ConfigurationManager.AppSettings["AggregateSupplyRecycled"]">
+                <p>RECYCLED</p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "recycled-aggregates-xs",ImageName="primary-aggregates-xs", ImageDescription = "Primary aggregates icon image",IncludeOtherSizes = false}'/>
+            </a>
+        </div>
+        <div class="aggregate-decorative-container">
+            <a class="aggregate-circle aggregate-decorative" href="@ConfigurationManager.AppSettings["AggregateSupplyDecorative"]">
+                <p>DECORATIVE</p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "home-aggregate-img",ImageName="decorative-aggregates-xs", ImageDescription = "Primary aggregates icon image",IncludeOtherSizes = false}'/>
+            </a>
+        </div>
+        <div class="aggregate-bulk-container">
+            <a class="aggregate-circle aggregate-bulk" href="@ConfigurationManager.AppSettings["AggregateSupplyBulk"]">
+                <p>BULK</p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "home-aggregate-img",ImageName="bulk-bag-aggregates-xs", ImageDescription = "Primary aggregates icon image",IncludeOtherSizes = false}'/>
+            </a>
+        </div>
+        <div class="aggregate-cements-container">
+            <a class="aggregate-circle aggregate-cements" href="@ConfigurationManager.AppSettings["AggregateSupplyCement"]">
+                <p>CEMENTS</p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "home-aggregate-img",ImageName="bagged-cement-aggregates-xs", ImageDescription = "Primary aggregates icon image",IncludeOtherSizes = false}'/>
+            </a>
+        </div>
+    </div>
+
+    <a class="aggregates-advert-right" href="@ConfigurationManager.AppSettings["AggregateSupply"]">
+        <div class="w-75 m-auto text-center">
+            <h2><i class="fas fa-mouse-pointer pr-3"></i></h2>
+            <h4>
+                Aggregate Supply Shop
+            </h4>
+        </div>
+    </a>
+</div>

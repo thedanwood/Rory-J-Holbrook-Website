@@ -1,0 +1,53 @@
+﻿@page "/projects"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.NavButtonNames = "projects-nav-btn";
+    ViewBag.Title = "Our Projects";
+}
+@section head{
+    <meta name='description' content="Our extensive experience is backed by various successful projects such as runway renovations in Edinburgh, Jersey and Isle of Man." />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="all-rory-lorries", ImageDescription = "Fleet of some of the lorries working for Rory"}'/>
+<div class="page-name">
+    <h1>Projects</h1>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="@ConfigurationManager.AppSettings["Projects"]">Projects</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <div class="nav-page-tile-container">
+                    <partial name="partials/projects/_airportprojectstile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-blue">
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 1, cssStyleEnum = (int)Enums.CssStyles.LightBlue })
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "See Our Haulage Services"
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "Explore Our Construction Services"
+})

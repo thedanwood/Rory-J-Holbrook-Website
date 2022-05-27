@@ -1,0 +1,41 @@
+﻿@model RJHWebsite.Pages.Shared.Components.TileSnippet.TileSnippetViewComponent.TileSnippetViewModel
+@using RJHWebsite.Enums
+
+@if (Model.TileStyleEnum == (int)TileStyles.SquareZoom)
+{
+    <div class="tile-square-zoom">
+        <a href="@Model.ButtonLink">
+            <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "tile-square-zoom-img",ImageName=Model.ImagePath, ImageDescription = Model.ImageDescription, IncludeOtherSizes = false}'/>
+            <div class="tile-square-zoom-dropdown">
+                <h5 class="tile-square-zoom-title ">@Model.Title</h5>
+                <span class="btn btn-light tile-square-zoom-btn mt-3 w-auto"><p>@Model.ButtonText</p></span>
+            </div>
+        </a>
+    </div>
+}else if (Model.TileStyleEnum == (int)TileStyles.TextSide)
+{
+    <div class="tile-text-side">
+        <div class="row">
+            <div class="col-4 pl-0 py-md-2 px-1">
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "tile-text-side-img",ImageName=Model.ImagePath+"-sm", ImageDescription = Model.ImageDescription, IncludeOtherSizes = false}'/>
+            </div>
+            <div class="col-8">
+                <h5 class="tile-text-side-title style-text">@Model.Title</h5>
+                <a class="tile-text-side-btn style-btn" href="@Model.ButtonLink">@Model.ButtonText</a>
+            </div>
+        </div>
+    </div>
+}else if (Model.TileStyleEnum == (int)TileStyles.SquareDiagonal)
+{
+   <a class="tile-square-diagonal" href="@Model.ButtonLink">
+        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "tile-square-diagonal-img",ImageName=Model.ImagePath, ImageDescription = Model.ImageDescription}'/>
+        <div class="tile-square-diagonal-btn">@Model.Title</div>
+    </a>
+}
+else if (Model.TileStyleEnum == (int)TileStyles.TextAbove)
+{
+    <div class="tile-text-above-container">
+        <h3 class="tile-text-above-text">@Model.Title</h3>
+        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "tile-text-above-img",ImageName=Model.ImagePath, ImageDescription = Model.ImageDescription}'/>
+    </div>
+}

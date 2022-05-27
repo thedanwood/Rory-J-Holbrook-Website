@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "grab-lorry-hire",
+    ImageDescription = "",
+    Title = "Aggregate Collection",
+    ButtonText = "Aggregate Collection",
+    ButtonLink = ConfigurationManager.AppSettings["Locations"],
+    TileStyleEnum = Model,
+})

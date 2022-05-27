@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "muckaway-grab-hire",
+    ImageDescription = "Muckaway removal from sites collecting otherwise wasted materials such as inert and toxic waste.",
+    Title = "Muckaway",
+    ButtonText = "View Our Muckaway Services",
+    ButtonLink = ConfigurationManager.AppSettings["Muckaway"],
+    TileStyleEnum = Model
+})

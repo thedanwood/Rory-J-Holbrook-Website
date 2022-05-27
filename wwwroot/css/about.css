@@ -1,0 +1,92 @@
+﻿/*#region THE TEAM*/
+.the-team-profile {
+    background-color: white;
+    text-align: center;
+    padding:var(--p-sm);
+}
+.the-team-profile h4 {
+    text-transform: uppercase;
+    color: rgb(21,95,169);
+    font-weight: bold;
+}
+/*#endregion THE TEAM*/
+/*#region OUR STORY*/
+.our-story-text-container {
+    text-align: justify;
+}
+/*#endregion OUR STORY*/
+/*#region TESTIMONIALS*/
+.testimonial-div {
+    background-color: white;
+    margin-top: 2rem;
+}
+
+.testimonial-img {
+    width: 70%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.testimonial-img-col {
+    text-align: center;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    position: relative;
+}
+
+.testimonial-text {
+    padding: var(--p-md);
+    text-align: justify;
+}
+@media only screen and (max-width: 768px) {
+    .testimonial-img {
+        width: 200px;
+        height: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: relative;
+    }
+
+    .testimonial-img-col {
+        border: none;
+        border-bottom: 1px solid lightgray;
+        text-align: justify;
+    }
+}
+/*#endregion TESTIMONIALS*/
+/*#region ACCREDITATIONS*/
+.accreditation-title {
+    background-color: #343a40 !important;
+    color: white;
+    padding: 10px;
+}
+.accreditation-collapse-container {
+    display: grid;
+    height: 100%;
+    background-color: white;
+}
+.accreditation-img {
+    background-color: white;
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+    transition: .5s ease;
+    overflow: hidden !important;
+}
+    .accreditation-img:hover {
+        filter: invert(30%);
+    }
+@media only screen and (max-width: 1400px) {
+    .accreditation-img {
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .accreditation-img {
+        height: 150px;
+    }
+}
+/*#endregion ACCREDITATIONS*/

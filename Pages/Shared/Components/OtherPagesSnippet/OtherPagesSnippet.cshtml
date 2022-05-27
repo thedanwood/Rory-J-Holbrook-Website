@@ -1,0 +1,35 @@
+﻿@using RJHWebsite.Pages.Shared.Components.OtherPagesSnippet;
+@using Enums;
+@model OtherPagesSnippetViewComponent.OtherPagesSnipperViewModel
+@if (Model.SnippetTypeEnum == (int)SnippetTypes.FullBottomBar)
+{
+    <div class="style-@Model.CssStyleEnum snippet bottom-bar-snippet top-bottom-padding">
+        <div class="left-right-padding">
+            <span class="snippet-title style-heading">@Model.Title</span>
+            <hr class="style-hr"/>
+            <div class="row">
+                @foreach (var pageDetails in Model.SiteStructure)
+                {
+                    <div class="other-pages-section bottom-bar-snippet-tile-container">
+                        <partial name="@pageDetails.TilePath" model="(int)TileStyles.SquareZoom"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+else if (Model.SnippetTypeEnum == (int)SnippetTypes.Sidebar)
+{
+    <div class="sidebar-contents style-@Model.CssStyleEnum">
+        <h4 class="style-heading">@Model.Title</h4>
+        <hr class="style-hr" />
+        <div class="snippet sidebar-snippet">
+            @foreach (var pageDetails in Model.SiteStructure)
+            {
+                <div class="other-pages-section">
+                    <partial name="@pageDetails.TilePath" model="(int)TileStyles.TextSide" />
+                </div>
+            }
+        </div>
+    </div>
+}

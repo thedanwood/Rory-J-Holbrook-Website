@@ -1,0 +1,15 @@
+﻿@using RJHWebsite.Models
+@model ImageModel
+<picture>
+    @{
+        string lazyLoadAttribute = Model.DisableLazyLoading==true ? "" : "lazyload";
+        string imgPrefix = Model.DisableLazyLoading==true ? "" : "data-";
+    }
+    @if (Model.IncludeOtherSizes)
+    {
+        @*<source media="(max-width: 990px)" data-srcset="/images/@(Model.ImageName)-tb.webp" type="image/webp">*@
+        <source media="(max-width: 990px)" @(imgPrefix)srcset="/images/@(Model.ImageName)-tb.jpg" type="image/jpeg">
+    }
+    @*<source data-srcset="/images/@(Model.ImageName).webp" type="image/webp">*@
+    <img @(imgPrefix)src="/images/@(Model.ImageName).jpg" alt="@Model.ImageDescription" class="@Model.ImageClassName @lazyLoadAttribute"/>
+</picture>

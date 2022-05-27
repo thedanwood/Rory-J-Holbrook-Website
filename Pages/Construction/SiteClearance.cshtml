@@ -1,0 +1,82 @@
+﻿@page "/material-removal/site-clearance"
+@using System.Configuration
+@{
+    ViewBag.Title = "Site Clearance";
+    ViewBag.NavButtonNames = "construction-services-nav-btn,site-clearance-nav-btn";
+}
+@section head{
+    <meta name='description' content='Utilising our extensive fleet of vehicles and machinery, we are able to provide an effective and fast site clearance service.' />
+    <meta name='keywords' content='site clearance, muckaway removal, vegetation clearance, waste removal' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="construction-site-clearance", ImageDescription = "Digger and grab removing waste from site in Basingstoke"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Site Clearance</h1>
+                <p class="img-overlay-text xl-img-overlay-text">
+                    Utilising our extensive fleet of vehicles and machinery, we are able to provide an effective and fast site clearance service.
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=site-clearance" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Site Clearance Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["MaterialRemovalServices"]">Material Removal</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Site Clearance</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                 <h2 class="body-title f1">
+                    Site Clearance
+                </h2>
+                <p>
+                    Before a project begins often the site will require clearing of vegetation, contaminated material and other obstructions that may be present from the sites previous use.
+                    <br /><br />It is key that a thorough site clearance is completed before any major works commence as to not impact the project through its lifetime.
+                    <br /><br />By using our vast knowledge and industry professionals in conjunction with our earthworks and muck away services we can undertake all manner of site clearances tailored to the client’s requirements.
+                </p>
+                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 w-lg-75 mt-lg-4 mt-2",ImageName="excavating-loading-tipper", ImageDescription = "Excavator loading muckaway", IncludeOtherSizes = false}'/>
+                <p>
+                    <br /><br />If you require our site clearance services <a href="@ConfigurationManager.AppSettings["Contact"]?subject=site-clearance" class="btn btn-blue ml-2">contact us now</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-blue">
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 2, cssStyleEnum = (int)Enums.CssStyles.LightBlue})
+    </div>
+</div>
+
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "siteclearance",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Blue,
+    Title = "See Our Other Construction Services"
+})
+
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "View The Variety Of Haulage Services We Offer"
+})
+
+@section scripts {
+    <script>
+        $('#plant-hire-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

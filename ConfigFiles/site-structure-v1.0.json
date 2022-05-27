@@ -1,0 +1,85 @@
+{
+  "SiteStructure": [
+    //ABOUT
+    {
+      "PageLevel": 2,
+      "ParentPageName": "about",
+      "PageName": "TheTeam",
+      "TilePath": "partials/about/_theteamtile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "about",
+      "PageName": "OurStory",
+      "TilePath": "partials/about/_ourstorytile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "about",
+      "PageName": "Testimonials",
+      "TilePath": "partials/about/_testimonialstile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "about",
+      "PageName": "Accreditations",
+      "TilePath": "partials/about/_accreditationstile"
+    },
+    //CONSTRUCTION
+    {
+      "PageLevel": 2,
+      "ParentPageName": "construction",
+      "PageName": "AggregateSupplies",
+      "TilePath": "partials/construction/_aggregatesuppliestile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "construction",
+      "PageName": "MaterialRemoval",
+      "TilePath": "partials/construction/_materialremovalservicestile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "construction",
+      "PageName": "Earthworks",
+      "TilePath": "partials/construction/_earthworksservicestile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "construction",
+      "PageName": "Recycling",
+      "TilePath": "partials/construction/_recyclingservicestile"
+    },
+    //HAULAGE
+    {
+      "PageLevel": 2,
+      "ParentPageName": "haulage",
+      "PageName": "TipperHire",
+      "TilePath": "partials/haulage/_tipperhiretile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "haulage",
+      "PageName": "GrabHire",
+      "TilePath": "partials/haulage/_grabhiretile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "haulage",
+      "PageName": "RailHaulage",
+      "TilePath": "partials/haulage/_RailHaulageServicestile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "haulage",
+      "PageName": "NonTippingConveyorFloorHire",
+      "TilePath": "partials/haulage/_NonTippingConveyorFloortile"
+    },
+    {
+      "PageLevel": 2,
+      "ParentPageName": "haulage",
+      "PageName": "PlantServices",
+      "TilePath": "partials/haulage/_plantservicestile"
+    }
+  ]
+}

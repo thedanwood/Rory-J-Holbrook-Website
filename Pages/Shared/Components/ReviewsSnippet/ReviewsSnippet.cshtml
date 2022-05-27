@@ -1,0 +1,58 @@
+﻿@using RJHWebsite.Pages.Shared.Components.ReviewsSnippet;
+@using RJHWebsite.Enums;
+@using System.Configuration
+@model ReviewsSnippet.ReviewsSnippetViewComponent.ReviwsViewModel
+<style>
+    .reviews-slider{
+        background-color:white;
+        padding:10px;
+        height:300px;
+    }
+    .review-container{
+        width:400px;
+        height:300px;
+    }
+    .smile{
+         font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f118";
+                color:green;
+    }
+    .review-stars, .review-stars i{
+        display:inline;
+        font-size:var(--font-size-6);
+    }
+    .star::before{
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f005";
+        color:#edba00;
+    }
+</style>
+<div class="bg-dark top-bottom-padding style-@Model.CssStyleEnum">
+        <div class="left-right-padding">
+            <h3 class="style-heading">@Model.Title</h3>
+            <p class="style-text">@Model.SubTitle</p>
+            <hr class="style-hr" />
+            <div class="reviews-slider">
+                @foreach(var review in Model.AllReviews)
+                {
+                    <div class="review-container">
+                        <p>
+                            <span class="smile"></span>"@review.ReviewBody"
+                        </p>
+                         <p>
+                            - @review.ReviewName
+                        </p>
+                        <div class="review-stars">
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>

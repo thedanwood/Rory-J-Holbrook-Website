@@ -1,0 +1,170 @@
+﻿@page "/plant-services/plant-hire"
+@model RJHWebsite.Pages.Haulage.PlantHireModel
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Plant Hire";
+    ViewBag.NavButtonNames = "haulage-services-nav-btn,plant-hire-nav-btn";
+}
+@section head{
+    if (Model.PlantType != null)
+    {
+        <meta name="robots" content="noindex">
+    }
+    <meta name='description' content='Rory J Holbrook Ltd has a varying range of plant and equipment available for hire, both short term and long term.' />
+    <meta name='keywords' content='Doosan, liugong, jcb, 360, digger, machine, screener, crusher, loading shovel, teleporter' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="plant-hire-haulage", ImageDescription = "Leibherr 726 GPS equiped dozer working at site"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Plant Hire</h1>
+                <p class="img-overlay-text">
+                    Providing excellent plant hire services for over 30 years
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=plant-hire" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Plant Hire Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="row">
+            <div class="left-right-padding">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["PlantServices"]">Plant Services</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Plant Hire</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+                <div class="top-bottom-padding">
+                    <h2 class="f1 body-title">Plant Hire</h2>
+                    <p>
+                        Rory J Holbrook Ltd offer crushers and screeners for any requirements you may have, big or small.
+                        <br />
+                        Our simple hiring process can be broken down into just four easy steps. The machine hire, the transport to the site, the setup and the experienced operator.
+                        <br /><br />
+                        All this can be put into one weekly price for you so you know exactly where the budget will be.
+                        <br />
+                        You'll also have excellent support if something happens to go wrong while the machine is on hire we're dedicated to making sure you get the job well done and as smoothly as possible.
+                        <br /><br />
+                        We offer nationwide loading shovel hire. Our unique approach enables us to offer anything from a week-to-week hire, rolling 6 or 12 month hire or fixed contract hire agreements.
+                        <br /><br />
+                        The machines are equipped to work within most applications with options of standard general, side tipping, high tipping or grapple buckets.
+                        Most loading shovels have hydraulic quick hitches to allow quick exchange of attachments.
+                        <br /><br />
+                        Whether its for an <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregate</a> job or the hardest <a href="@ConfigurationManager.AppSettings["MaterialRemovalServices"]">waste application</a>, we are ready and have loading shovel packages to suit. Just <a href="/contact?subject=plant-hire">get in touch</a> to discuss this.
+                    </p>
+                    <h2 class="body-title">
+                        Available Plant
+                    </h2>
+                    <div class="text-right">
+                         <a class="btn btn-green btn-lg mb-3 mr-3" href="@ConfigurationManager.AppSettings["Contact"]?subject=plant-hire"><i class="fas fa-envelope pr-2"></i>Plant Hire Enquiry</a>
+                    </div>
+                    <div class="available-plants mb-3">
+                        <div id="plant-3-way-screener" class="plant-container">
+                            @await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+                            {
+                                ImagePath = "mcclowskey-3-way-screener",
+                                ImageDescription = "McCloskey 3 way split screener screening recycled aggregates",
+                                Title = "3 Way Screener",
+                                TileStyleEnum = (int)TileStyles.TextAbove,
+                            })
+                        </div>
+                        <div id="plant-jaw-crusher" class="plant-container">
+                            @await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+                            {
+                                ImagePath = "mcCloskey-j45-jaw-crusher",
+                                ImageDescription = "mcCloskey j45 jaw crusher in action",
+                                Title = "Jaw Crusher",
+                                TileStyleEnum = (int)TileStyles.TextAbove,
+                            })
+                        </div>
+                        <div id="plant-wheel-loader" class="plant-container">
+                             @await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+                            {
+                                ImagePath = "wheel-loader-haulage",
+                                ImageDescription = "Doosan DL450 and DL480 in Norfolk site",
+                                Title = "Wheel Loader - Varying Sizes",
+                                ButtonLink = "",
+                                TileStyleEnum = (int)TileStyles.TextAbove,
+                            })
+                        </div>
+                        <div id="plant-22-tonne-excavator" class="plant-container">
+                            @await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+                            {
+                                ImagePath = "22-tonne-excavator",
+                                ImageDescription = "22 tonne luigong 922 demo spec",
+                                Title = "22 Tonne Excavator",
+                                ButtonLink = "",
+                                TileStyleEnum = (int)TileStyles.TextAbove,
+                            })
+                        </div>
+                        <div id="plant-bulldozer" class="plant-container">
+                            @await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+                            {
+                                ImagePath = "bulldozer-gps-equipped",
+                                ImageDescription = "GPS equipped bulldozer plant for hire",
+                                Title = "Bulldozer - GPS Equipped",
+                                ButtonLink = "",
+                                TileStyleEnum = (int)TileStyles.TextAbove,
+                            })
+                        </div>
+                        <div id="plant-articulated-dump-truck" class="plant-container">
+                            @await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+                            {
+                                ImagePath = "articulated-dump-truck",
+                                ImageDescription = "Leibherr Ta230 hauling materials",
+                                Title = "Artciulated Dump Truck",
+                                ButtonLink = "",
+                                TileStyleEnum = (int)TileStyles.TextAbove,
+                            })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-blue">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "planthire",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightBlue,
+            Title = "See Our Other Haulage Services"
+        })
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 2, cssStyleEnum = (int)Enums.CssStyles.LightBlue})
+    </div>
+</div>
+<div class="bg-blue">
+    <div class="left-right-padding top-bottom-padding">
+        <h4 class="text-white">We are proud to work alongside industry-leaders and to work to the highest standards of the industry.</h4>
+        <hr />
+        <div class="row">
+            <partial name="partials/sliders/_standardsandpartnerssliders" model="@(int)Enums.Variations.Variation1" />
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "We Also Offer Construction Services"
+})
+@section scripts {
+    <script>
+        @{
+            if(Model.PlantType != null && Model.PlantType != ""){
+                @:scrollToElement("#plant-@Model.PlantType",null,-180,true);
+            }
+        }
+    </script>
+}

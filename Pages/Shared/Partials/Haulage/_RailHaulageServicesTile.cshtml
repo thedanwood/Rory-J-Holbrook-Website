@@ -1,0 +1,12 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@using System.Configuration
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "norfolk-railfreight-tipper",
+    ImageDescription = "____",
+    Title = "Rail Haulage",
+    ButtonText = "See Rail Haulage Services",
+    ButtonLink = ConfigurationManager.AppSettings["RailHaulageServices"],
+    TileStyleEnum = Model,
+})

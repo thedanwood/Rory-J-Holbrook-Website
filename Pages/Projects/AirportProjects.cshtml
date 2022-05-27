@@ -1,0 +1,93 @@
+﻿@page "/projects/airport-projects"
+@using System.Configuration
+@{
+    ViewBag.Title = "Airport Projects";
+    ViewBag.NavButtonNames = "projects-nav-btn,airport-project-nav-btn";
+}
+@section head{
+    <meta name='description' content='We are proud to have completed various successful airport projects such as runway renovations in Edinburgh, Jersey and Isle of Man.' />
+    <meta name='keywords' content='airport projects' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="airport-projects", ImageDescription = "RAF Coninsby airport project underway in summer"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Airport Projects</h1>
+                <p class="img-overlay-text">
+                    Over the years, Rory J Holbrook ltd have completed various successful airport projects
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="left-right-padding">
+    <div class="row">
+        <nav aria-label="breadcrumb" class="mt-4">
+            <ol class="breadcrumb pl-0">
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Projects"]">Projects</a></li>
+                <li class="breadcrumb-item active"><a href="#">Airport Projects</a></li>
+            </ol>
+            <hr class="mb-0" />
+        </nav>
+    </div>
+    <div class="top-bottom-padding">
+        <h2 class="body-title f1">Airport Projects</h2>
+        <p>
+            Over the years, Rory J Holbrook Ltd has carried out a large number of Airport and Carriageway resurfacing contracts for numerous clients.
+            <br /><br />
+            Due to our fleet size, versatility and attention to customer service we have developed strong relationships, 
+            which have allowed us to be taken from contract to contract going from island to island. We have a history which 
+            stretches over 15 years in contract haulage and have carried out contracts with and for Lafarge Contracting, Colas, 
+            Volkerfitzpatrick, Lagan Construction and GTLC JV to name a few. These contracts included Isle of Man, Edinburgh, 
+            Jersey, East Midlands Airport, Kirkwall, Falklands, Stanstead, Heathrow, Manchester, Southend and RAF Coningsby.
+        </p>
+        <br /><br />
+        <h2 class="body-title">RAF Coninsby</h2>
+        <p>
+            Working with Colas, this job required both articulated and rigid vehicles over the 6 months.
+            <br /><br />
+            Working prominently through the night we supplied insulated tippers for the laying of asphalt for the renovation of the current runway.
+            <br /><br />
+            Aswell as the insulated tippers this job required the machines to be bought onto the runway each night as the runway was live throughout the day. Because of this we could offer our experienced low loader services to assist in this.
+        </p>
+        <br /><br />
+        <h2 class="body-title">Edinburgh</h2>
+        <p>
+            Working alongside Lafarge Contractors on the renovation of the runways for BAA.
+            <br /><br />
+            This box had three essential elements:
+            <ul>
+                <li>
+                    To provide the recommended length safety zones at both ends of the main runway to meet the latest proposed UK and International
+                    safety standards and comply with current industry ‘best practice’. This will provide a significantly improved ‘overshoot’ and
+                    'undershoot' area.
+                </li>
+                <li>
+                    To refurbish, strengthen and resurface the main 08/26 runway and some of the taxiways, as part of an on-going programme of maintenance.
+                </li>
+                <li>
+                    To pave the newly provided RESAs in order to provide starter strips to take a small operational advantage to the runway length,
+                    particularly the landing distance available, supporting the Airport’s ability to manage and grow air services into the future.
+                </li>
+            </ul>
+        </p>
+        <br /><br />
+        <h2 class="body-title">Jersey Airport</h2>
+        <p>
+            Worked with Colas on the renovation of the main runway.
+            <br /><br />
+            At Jersey Airport we were contracted by Colas on a major programme of essential work to resurface and strengthen its runway, which had reached the end of its useful life.
+            <br /><br />
+            The work, which was carried out at night commenced September 2008 and finished April 2009. The work involved re-profiling, resurfacing and strengthening of the runway to smooth out the high and low points as well as upgrading the runway lighting.
+        </p>
+        <br /><br />
+        <h2 class="body-title">Isle of Man Airport</h2>
+        <p>
+            Our fleet supplied the haulage to Colas for the renovation work on this airport.
+            <br /><br />
+            The runway surface replacement was carried between July and September 2008. The work was carried out at night and involved laying 20 thousand tonnes of Asphalt.
+        </p>
+    </div>
+</div>

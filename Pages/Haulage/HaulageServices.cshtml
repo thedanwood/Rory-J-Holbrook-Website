@@ -1,0 +1,76 @@
+﻿@page "/haulage-services"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.NavButtonNames = "haulage-services-nav-btn";
+    ViewBag.Title = "Road and Rail Haulage Services";
+}
+@section head{
+    <meta name='description' content="Being the leader of road and rail haulage services in East Anglia and beyond, we are able to efficiently and confidently undertake any haulage tasks." />
+}
+<partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="all-rory-lorries", ImageDescription = "Fleet of some of the lorries working for Rory"}'/>
+<div class="page-name">
+    <h1>Haulage Services</h1>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Haulage</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <div class="nav-page-tile-container">
+                    <partial name="partials/haulage/_roadhaulageservicestile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/haulage/_railhaulageservicestile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/haulage/_nontippingconveyorfloortile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+                <div class="nav-page-tile-container">
+                    <partial name="partials/haulage/_plantservicestile" model="@(int)TileStyles.SquareZoom" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "",
+            ParentPage = "construction",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+            Title = "Explore Our Construction Services"
+        })
+
+        @await Component.InvokeAsync("NewsSnippet", new { snippetTypeEnum = (int)Enums.SnippetTypes.Sidebar, numberOfArticles = 2, cssStyleEnum = (int)Enums.CssStyles.LightGrey })
+    </div>
+</div>
+
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "Explore Our Construction Services"
+})
+<div class="bg-dark-red">
+    <div class="left-right-padding top-bottom-padding">
+        <div class="row">
+            <partial name="partials/sliders/_standardsandpartnerssliders" model="@(int)Enums.Variations.Variation3" />
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $('#road-and-rail-haulage-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

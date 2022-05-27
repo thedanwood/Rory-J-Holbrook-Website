@@ -1,0 +1,109 @@
+﻿@page "/rail-haulage/railheads"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.Title = "Railheads";
+    ViewBag.NavButtonNames = "haulage-services-nav-btn,rail-haulage-nav-btn";
+}
+@section head{
+    <meta name='description' content='Our Railheads are strategically positioned through East Anglia to provide easy distribution of material supplies.' />
+    <meta name='keywords' content=rail haulage, railheads' />
+}
+<div class="main-img">
+   <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="railheads-haulage", ImageDescription = "Unloading material supplies through rail infrastructure to grab lorry"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Railheads</h1>
+                <p class="img-overlay-text">
+                    Importing over 7,000 tonnes of material into the region each week
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=railheads" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Railheads Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+             <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["RailHaulageServices"]">Rail Haulage</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Railheads</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+            <div class="top-bottom-padding">
+                <h2 class="f1 body-title">Railheads</h2>
+                <div class="row row-plr-0">
+                    <div class="col-lg-6 col-12 order-lg-2">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 mb-lg-0 mb-2",ImageName="railheads-rail-haulage", ImageDescription = "Material handler unloading type 1 train to remove cargo",IncludeOtherSizes = false}'/>
+                    </div>
+                    <div class="col-lg-6 col-12 pr-lg-3 mb-lg-0 mb-3">
+                        <h2 class="body-title">
+                            Strategic Locations
+                        </h2>
+                        <p>
+                            With the <a href="/locations">railhead locations</a> situated in strategic areas throughout East Anglia we can minimize the disruption caused by unavailability of <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregate supply</a>. 
+                            Not only does this ability allow us to fulfill the industry demand for primary aggregates, but it also ensures the materials being distributed are 
+                            always of a high quality and correct specification for the customer’s needs.
+                            <br /><br />With the use of railheads enabling us to transport 1,800 tonnes of material from either end of the country in one movement and simultaneously 
+                            remove 90 individual HGV movements off British roads. We believe that rail is the sustainable future for the aggregate transport industry, and we will lead the way.
+                        </p>
+                        <a class="mt-1 btn btn-light-blue btn-lg" href="/locations">See Our Railhead Locations</a>
+                    </div>
+                </div>
+                <div class="row row-plr-0 mt-lg-4">
+                     <div class="col-lg-6 col-12 mb-lg-0 mb-3">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100 mb-lg-0 mb-2",ImageName="grab-lorry-road-haulage", ImageDescription = "Material handler unloading type 1 train to remove cargo",IncludeOtherSizes = false}'/>
+                    </div>
+                    <div class="col-lg-6 col-12 pl-lg-3">
+                        <h2 class="body-title">
+                            Extensive Supply Chain
+                        </h2>
+                        <p>
+                            Part of ensuring we are always able to fulfill our customers supply chain needs is our ability to facilitate the supply of aggregates regardless of the type or quantity required while maintaining our prestigious reputation and competitive rates.
+                            <br /><br />With aggregates being a naturally occurring material the availability can be unpredictable and detrimental to the supply chain and construction environment. In order to overcome this industry challenge and always maintain <a href="@ConfigurationManager.AppSettings["AggregateSupply"]">aggregate supply</a> we continuously invest in our own railheads to supply large quantities of all materials at a fast, reliable and environmentally conscious way. 
+                        </p>
+                    </div>
+                </div>
+                <br /><br />
+                <h2 class="body-title mt-4">Related Services</h2>
+                <div class="related-pages-tiles-container">
+                    <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/haulage/_tipperhiretile" model="(int)TileStyles.SquareDiagonal"/>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-grey">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+         {
+             SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+             CurrentPage = "Railheads",
+             ParentPage = "haulage",
+             CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightGrey,
+             Title = "Explore Our Other Haulage Services"
+         })
+    </div>
+</div>
+
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "View Construction Services Povided By Rory J Holbrook ltd"
+})
+
+@section scripts {
+    <script>
+        $('#plant-hire-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

@@ -1,0 +1,129 @@
+﻿@page "/about/accreditations"
+@using System.Configuration
+@{
+    ViewBag.Title = "Accreditations";
+    ViewBag.NavButtonNames = "about-nav-btn,accreditations-nav-btn";
+}
+@section head{
+    <meta name='description' content='We are accredited to the industry’s leading schemes, ranging from FORs to the RHA. All aspects of business have been assessed for us to achieve these.' />
+    <meta name='keywords' content='accreditations,fors,acclaim,construction line,mpqc' />
+}
+<div class="page-name">
+    <h1>ACCREDITATIONS</h1>
+</div>
+<div class="faded-img-behind" title="Faded 8 wheelers image behind main content">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1 col-12">
+
+            <div class="row">
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb pl-0">
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                        <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["About"]">About</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Accreditations</a></li>
+                    </ol>
+                    <hr class="mb-0" />
+                </nav>
+            </div>
+
+            <div class="row justify-content-center top-bottom-padding">
+                <div class="col-xl-3 col-lg-4 col-6">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>FORs Silver Fleet Operator Recognition Scheme</p>
+                        </div>
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="fors-gold-recognition-scheme", ImageDescription = "Fors gold fleet operator recognition scheme log",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>Acclaim Accreditation SSIP Scheme Member</p>
+                        </div>
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="acclaim-accreditation", ImageDescription = "Acclaim accreditation SSIP scheme member logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6 mt-lg-0 mt-4">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>ConstructionLine Gold Member</p>
+                        </div>
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="construction-line-gold-member", ImageDescription = "Construction gold line member logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6 mt-xl-0 mt-4">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>MPQC Driver Skill Cards</p>
+                        </div>
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="mpqc-driver-skill-cards", ImageDescription = "MPQC Driver skill cards logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6 mt-4">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>TASCC Trade Assurance</p>
+                        </div>
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="tascc-trade-assurance", ImageDescription = "Acclaim accreditation SSIP scheme member logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6 mt-4">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>RHA Road Haulage Association</p>
+                        </div>
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="rha-road-haulage-logo", ImageDescription = "RHA road haulage association logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6 mt-4">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>Avetta Member</p>
+                        </div>
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="avetta-member-logo", ImageDescription = "Avetta member logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-6 mt-4">
+                    <div class="accreditation-collapse-container text-left">
+                        <div class="title-over-img position-relative w-100 accreditation-title">
+                            <p>Freight Transport Association Member</p>
+                        </div>
+                         <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "accreditation-img",ImageName="freight-transport-association", ImageDescription = "Freight transport association logo",IncludeOtherSizes = false}'/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "accreditations",
+    ParentPage = "about",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Blue,
+    Title = "Find Our More About Us"
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.DarkRed,
+    Title = "See Our Construction Services",
+})
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "haulage",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "See Our Haulage Services",
+})
+
+@section scripts{
+    <script>
+        $('.accreditation-title').matchHeight();
+
+        $('#about-nav-btn').css('color', 'black').css('font-weight', 'bold');
+    </script>
+}

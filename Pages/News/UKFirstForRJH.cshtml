@@ -1,0 +1,9 @@
+﻿@page "/news/uk-first-for-rjh"
+@{
+    ViewBag.Title = "UK First For RJH";
+    ViewBag.NavButtonNames = "news-nav-btn";
+}
+@section head{
+    <meta name="robots" content="noindex">
+}
+@await Component.InvokeAsync("NewsPage", new { newsArticlePageName = "uk-first-for-rjh"})

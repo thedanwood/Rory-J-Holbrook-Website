@@ -1,0 +1,123 @@
+﻿@page "/road-haulage/non-tipping-conveyor-floor-hire"
+@using RJHWebsite.Enums
+@using System.Configuration
+@{
+    ViewBag.NavButtonNames = "haulage-services-nav-btn,non-tipping-conveyor-floor-nav-btn";
+    ViewBag.Title = "Non Tipping Conveyor Floor Hire";
+}
+@section head{
+    <meta name='description' content='Our newly developed non-tipping trailer innovation uses a conveyor belt to improve the process of emptying the load.' />
+    <meta name='keywords' content='4 axle, 3 axle, machines, diggers, local, long distance, flatbed, oversized' />
+}
+<div class="main-img">
+    <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "main-img",ImageName="non-tipping-8-wheeler", ImageDescription = "Non tipping conveyor floor body on display"}'/>
+    <div class="v-center-outer background-gradient">
+        <div class="v-center-middle ml-img-overlay">
+            <div class="v-center-inner">
+                <h1 class="img-overlay-title">Non Tipping Conveyor Floor Hire</h1>
+                <p class="img-overlay-text">
+                    Our non-tipping trailer innovation improves the process of emptying the load.
+                </p>
+                <a href="@ConfigurationManager.AppSettings["Contact"]?subject=non-tipping-conveyor-floor" class="btn btn-blue img-overlay-btn"><i class="fas fa-envelope pr-2"></i>Non Tipping Conveyor Floor Enquiry</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-with-sidebar-container">
+    <div class="page-with-sidebar-main">
+        <div class="left-right-padding">
+
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb pl-0">
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["Home"]">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage</a></li>
+                    <li class="breadcrumb-item active"><a href="#">Non Tipping 8 Wheelers and Articulated Vehicles</a></li>
+                </ol>
+                <hr class="mb-0" />
+            </nav>
+
+            <div class="text-justify top-bottom-padding">
+                <h2 class="f1 body-title">Non Tipping Conveyor Floor Hire</h2>
+                <p>
+                    Working alongside Fruehauf trailers, we have now developed a non-tipping trailer and body suitable for
+                    the industry we work in. Different to a <a href="@ConfigurationManager.AppSettings["TipperHire"]">conventional tipper</a>, this works with a high powered conveyor
+                    belt along the bottom of the body. The whole loading experience is the same as well as the payload,
+                    however when it comes time to emptying the load, this is where we see the difference.
+                    <br /><br />
+                    The driver would arrive on site, (using the remote for the system that can control the whole operation
+                    from in the cab if needed) ,the automatic tailboard will open, the driver will then start up the belt
+                    via the remote. As the belt begins to move, the material will then begin to discharge from the lorry
+                    until the whole load has been discharged, within minutes meaning there will be no hold up on busy sites.
+                    <br /><br />
+                </p>
+                <h2 class="body-title">Non Tipping Conveyor Floor Capabilities</h2>
+                <div class="row row-plr-0">
+                    <div class="col-lg-6 col-12">
+                        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "img-in-text w-100",ImageName="non-tipping-conveyor-floor-rear", ImageDescription = "Non tipping conveyor floor body lorry using belt to unload materials",IncludeOtherSizes = false}'/>
+                    </div>
+                    <div class="col-lg-6 col-12 pl-lg-3">
+                         <div class="text-justify">
+                             <p>
+                                  There are many positives of this type of our non-tipping conveyor floor body:
+                             </p>
+                            <ul>
+                                <li>
+                                    <p>
+                                        Discharge on any surface and in any weather conditions, whereas<br />
+                                        with a normal tipper operations may have to come to a hold.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Can discharge on sites with overhead obstacles.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Belt rated to 250 degrees Celsius so suitable for hot asphalt
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Suitable for carrying all kind of aggregates
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Discharges load in two minutes, meaning no hold up on sites
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="body-title mt-4">Related Services</h2>
+                <div class="related-pages-tiles-container">
+                    <partial name="partials/haulage/_tipperhiretile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/haulage/_grabhiretile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_aggregatesuppliestile" model="(int)TileStyles.SquareDiagonal"/>
+                    <partial name="partials/construction/_muckawaytile" model="(int)TileStyles.SquareDiagonal"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar bg-light-light-blue">
+        @await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+        {
+            SnippetTypeEnum = (int)Enums.SnippetTypes.Sidebar,
+            CurrentPage = "nontippingconveyorfloorhire",
+            ParentPage = "haulage",
+            CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.LightBlue,
+            Title = "See Our Other Haulage Services"
+        })
+    </div>
+</div>
+
+@await Component.InvokeAsync("OtherPagesSnippet", new RJHWebsite.Models.OtherPagesSnippetModel
+{
+    SnippetTypeEnum = (int)Enums.SnippetTypes.FullBottomBar,
+    CurrentPage = "",
+    ParentPage = "construction",
+    CssStyleEnum = (int)RJHWebsite.Enums.CssStyles.Dark,
+    Title = "We Also Offer Construction Services"
+})

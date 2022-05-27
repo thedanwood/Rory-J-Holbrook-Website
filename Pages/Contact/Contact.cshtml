@@ -1,0 +1,134 @@
+﻿@page "/contact"
+@model RJHWebsite.Pages.Contact.ContactModel
+@{
+    ViewBag.Title = "Contact Us";
+    ViewBag.NavButtonNames = "contact-nav-btn";
+}
+@section head{
+    <meta name='description' content='Please contact us on 01953 718315 or email using sales@holbrookgroup.co.uk' />
+    <meta name='keywords' content='lakenheath, brandon, Norwich, Attleborough, tipper, lowloader, conveyor, artic, 8 wheeler, haulage' />
+}
+@if (Model.Subject != null)
+{
+    @section head{
+        <meta name="robots" content="noindex">
+    }
+}
+<div class="page-name">
+    <h1>CONTACT US</h1>
+</div>
+<div class="faded-img-behind">
+    <div class="left-right-padding-md left-right-padding top-bottom-padding">
+        <div class="w-100 bg-white p-lg-4 p-3" id="contact-form-container">
+            <div class="row" style="position:relative">
+                <partial name="partials/_loader" model="@("send-email-loader")" />
+                <div class="col-lg-8 col-12">
+                    <h2 class="body-title">Fill out the form below to send an email to us</h2>
+                    <hr />
+                    @if(Model.FormIsSubmitted)
+                    {
+                        <div class="alert alert-success" role="alert" onload="$(this).delay('2000').fadeOut();">
+                            <h5><i class="fas fa-check pr-3"></i>Your general enquiry has been successfully sent.</h5>
+                            <br />
+                            <p>One of our dedicated sales team will get in touch as soon as they can.</p>
+                            <p>Can't wait? Call our Transport Office: <a href="tel:01963 718306">01953 718306</a></p>
+                        </div>
+                    }
+                    <form id="contact-us-form" method="post" class="form mt-3" asp-antiforgery="true">
+                         <input type="text" id="txtFullName" asp-for="FullName" required minlength="2" maxlength="200" class="form-control contact-form-input" placeholder="Full Name" value="@Model.FullName"/>
+                        <span asp-validation-for="FullName"></span>
+                        <input type="text" id="txtEmail" asp-for="EmailAddress" email="true" required  class="form-control contact-form-input" placeholder="Email Address" value="@Model.EmailAddress"/>
+                        <span asp-validation-for="EmailAddress"></span>
+                        <input type="text" id="txtSubject" asp-for="Subject" required minlength="2" maxlength="120" class="form-control contact-form-input contact-form-subject" placeholder="Subject" value="@Model.Subject"/>
+                        <span asp-validation-for="Subject"></span>
+                        <textarea type="text" id="txtBody" asp-for="Body" required minlength="10" maxlength="600" class="form-control contact-form-input" placeholder="Your Message">@Model.Body</textarea>
+                        <span asp-validation-for="Body"></span>
+                        <div class="g-recaptcha" data-sitekey="6LdeWwYfAAAAACKkiRQpoACetjoRsP_CeUlINJ4a"></div>
+                        <br />
+                        <input type="submit" value="Send Email" id="send-email-btn" asp-page-handler="Submit" class="btn btn-blue mt-lg-4 mt-3"/>
+                    </form>
+                </div>
+                <div class="col-lg-4 col-12">
+                    <div class="float-lg-right text-lg-right text-left float-left mt-lg-0 mt-5">
+                        <h2 class="body-title">Contact Information</h2>
+                        <hr />
+                        <div class="d-inline-flex">
+                            <p>
+                                <i class="fas fa-phone-alt pr-2"></i>Admin:
+                                <a href="tel:01953 718315">01953 718315</a>
+                            </p>
+                        </div>
+                        <br />
+                        <div class="d-inline-flex">
+                            <p>
+                                <i class="fas fa-phone-alt pr-2"></i>Transport Office:
+                                <a href="tel:01963 718306">01953 718306</a>
+                            </p>
+                        </div>
+                        <br />
+                        <div class="d-inline-flex">
+                            <p>
+                                <i class="fas fa-phone-alt pr-2"></i>Email:
+                                <a href="mailto:sales@holbrookgroup.co.uk" target="_top">sales@holbrookgroup.co.uk</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-6 col-12">
+                <div class="map">
+                    <h2 class="body-title">Transport Office Location</h2>
+                    <hr />
+                    <p>
+                        Roudham Road, East Harling, Norwich, <br />NR16 2QN
+                    </p>
+                    <p>
+                        <a href="tel:01953 718306">01953 718306</a>
+                    </p>
+                    <iframe class="mt-3" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2891.6885448364756!2d0.8908544445831361!3d52.44996960784151!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d9ceb1e52963ff%3A0x9bf3371238bc36f7!2sRoudham+Rd%2C+Norwich!5e0!3m2!1sen!2suk!4v1477547697502" width="100%" height="235" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="map">
+                    <h2 class="body-title">Brandon Railhead</h2>
+                    <hr />
+                    <p>
+                        Train Station Car Park, Mundford Road, Brandon, <br />IP27 0BA
+                    </p>
+                    <p>
+                        <a href="tel:01842 813878">01842 813878</a>
+                    </p>
+                    <iframe class="mt-2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2431.3884452557827!2d0.6224609160881671!3d52.45399217980163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d830d043af1e21%3A0x154869b833ced2e4!2sBrandon!5e0!3m2!1sen!2suk!4v1585652334025!5m2!1sen!2suk" width="100%" height="235" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 mt-4">
+                <div class="map">
+                    <h2 class="body-title">Lakenheath Recycling Centre</h2>
+                    <hr />
+                    <p>
+                        Brandon Road, Lakenheath, <br />IP27 9FB
+                    </p>
+                    <p>
+                        <a href="tel:01638 534984">01638 534984</a>
+                    </p>
+                    <iframe class="mt-2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.5965549462853!2d0.5519472159956214!3d52.39586365317362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d830674ecad669%3A0x48f89870f14a4a2d!2sBrandon%20Rd%2C%20Brandon%20IP27%209FB!5e0!3m2!1sen!2suk!4v1591524818657!5m2!1sen!2suk" width="100%" height="235" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $('#contact-us-form').validate();
+        $("#contact-us-form").submit(function(){
+            if($(this).valid()){
+                $("#send-email-loader").show();
+            }
+        })
+    </script>
+}

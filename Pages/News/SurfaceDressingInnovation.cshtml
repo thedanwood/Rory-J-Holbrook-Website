@@ -1,0 +1,9 @@
+﻿@page "/news/surface-dressing-innovation"
+@{
+    ViewBag.Title = "Surface Dressing Innovation";
+    ViewBag.NavButtonNames = "news-nav-btn";
+}
+@section head{
+    <meta name="robots" content="noindex">
+}
+@await Component.InvokeAsync("NewsPage", new { newsArticlePageName = "surface-dressing-innovation"})

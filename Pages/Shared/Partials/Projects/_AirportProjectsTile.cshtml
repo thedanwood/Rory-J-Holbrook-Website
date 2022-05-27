@@ -1,0 +1,11 @@
+﻿@model int
+@using RJHWebsite.Pages.Shared.Components.TileSnippet;
+@await Component.InvokeAsync("TileSnippet", new TileSnippetViewComponent.TileSnippetViewModel
+{
+    ImagePath = "airport-projects-runway",
+    ImageDescription = "____",
+    Title = "Airport Projects",
+    ButtonText = "See Our Airport Projects",
+    ButtonLink = "/projects/airport-projects",
+    TileStyleEnum = Model,
+})

@@ -1,0 +1,54 @@
+﻿@using RJHWebsite.Pages.Shared.Components.TestimonialsSnippet;
+@using RJHWebsite.Enums;
+@using System.Configuration
+@model TestimonialsSnippetViewComponent.TestimonialsViewModel
+@{       
+    string heading = "";
+    string info = "";
+    switch (Model.VariationEnum) {
+        case (int)Variations.Variation1:
+        default:
+            heading = "Don't Just Take Our Word For It...";
+            info = "Read our testmonials to discover how our clients feel about our products and services.";
+            break;
+        case (int)Variations.Variation2:
+            heading = "Find Our What Is Said About Us";
+            info = "Read our testmonials to find out what our clients and customers have got to say about us.";
+            break;
+        case (int)Variations.Variation3:
+            heading = "We Put Our Customers And Clients First";
+            info = "Don't take our word for it. See our testimonials to read what is said about our services.";
+            break;
+
+    }
+}
+@if (Model.SnippetTypeEnum == (int)SnippetTypes.FullBottomBar)
+{
+    <div class="bg-dark top-bottom-padding style-@Model.CssStyleEnum">
+        <div class="left-right-padding">
+            <h3 class="style-heading">@heading</h3>
+            <p class="style-text">@info</p>
+            <hr class="style-hr" />
+            <div class="testimonials-slider">
+                @foreach (var testimonial in Model.Testimonials)
+                {
+                    <div class="d-inline-block">
+                        <div class="testimonials-slide-container">
+                            <div class="testimonial-slider-img-container">
+                                <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "testimonial-slider-img",ImageName=testimonial.FileName+"-sm", ImageDescription = @testimonial.ImageDescription, IncludeOtherSizes = false}'/>
+                            </div>
+                            <div class="testimonials-info-container">
+                                <span class="testimonial-slider-text">
+                                    "@testimonial.SmallText..."
+                                </span>
+                                <br />
+                                <a href="@ConfigurationManager.AppSettings["Testimonials"]" name="read-more-testimonials" class="btn btn-dark testimonials-slider-btn mt-2">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    
+}

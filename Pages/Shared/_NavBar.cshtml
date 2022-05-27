@@ -1,0 +1,288 @@
+﻿@using System.Configuration
+<nav class="navbar sticky-top navbar-expand-xl bg-blue">
+    <a class="navbar-brand d-lg-none d-block" href="@ConfigurationManager.AppSettings["Home"]" id="mobile-rory-logo-container">
+        <partial name='partials/_image' model='new RJHWebsite.Models.ImageModel(){ ImageClassName = "mobile-logo-img",ImageName="rjh-logo", ImageDescription = "Rory J Holbrook logo with text spelling the business name", IncludeOtherSizes = false, DisableLazyLoading = true}'/>
+    </a>
+    <div class="enquiry-list">
+        <div id="btn-loader" class="loader-container">
+            <div id="btn-spinner" class="loader"></div>
+        </div>
+        <div class="enquiry-btn">
+            <button class="btn btn-default" id="enquiry-btn" style="background-color:white;">
+                <i class="fas fa-shopping-basket" style="font-size:20px;"></i>
+                <span id="enquiry-list-count">
+                    <span class="badge badge-dark bg-light-blue" id="enquiry-list-counter">0</span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="enquiry-list-contents has-items">
+            <partial name="partials/_loader" model="@("enquiry-list-loader")" />
+            <div class="enquiry-list-close-btn"><i class="fas fa-times"></i></div>
+            <div class="enquiry-list-no-items">
+                <span class="enquiry-list-title"><strong>No Materials Added</strong></span>
+                <p>Your enquiry list is empty</p>
+                <a class="btn btn-blue" href="@ConfigurationManager.AppSettings["AggregateSupplyPrimary"]">Browse Our Aggregate Selection</a>
+            </div>
+            <div class="enquiry-list-has-items">
+                <span class="enquiry-list-title"><strong>Items in enquiry list</strong></span>
+                <hr />
+                <div class="enquiry-items-container"></div>
+                <a class="btn btn-blue mt-3" href="@ConfigurationManager.AppSettings["AggregateSupplyPrimary"]"><i class="fas fa-plus pr-2"></i>Add Aggregates Now</a>
+                <a class="btn btn-green mt-3" href="@ConfigurationManager.AppSettings["CompleteEnquiry"]"><i class="fas fa-check pr-2"></i>Complete Enquiry</a>
+            </div>
+        </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div id="nav-icon3">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </button>
+    <div id="navbarNav" class="collapse navbar-collapse">
+        <div class="navbar-nav d-flex">
+            <ul class="ul-formatted">
+                <li id="home-nav-btn" class="nav-item">
+                    <a class="nav-link nav-item-1" href="@ConfigurationManager.AppSettings["Home"]">Home</a>
+                </li>
+                <li id="about-nav-btn" class="nav-item dropdown-hover">
+                    <a class="nav-link dropdown-hover-button nav-item-1" href="@ConfigurationManager.AppSettings["About"]">About <i class="fas fa-caret-down"></i> <span class="sr-only">(current)</span></a>
+                    <div class="dropdown-hover-content small-dropdown-hover-content">
+                         <div class="small-dropdown-items-container">
+                             <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["About"]"><h4>About</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="the-team-nav-btn" href="@ConfigurationManager.AppSettings["TheTeam"]"><h6>The Team</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="our-story-nav-btn" href="@ConfigurationManager.AppSettings["OurStory"]"><h6>Our Story</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="testimonials-nav-btn" href="@ConfigurationManager.AppSettings["Testimonials"]"><h6>Testimonials</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="accreditations-nav-btn" href="@ConfigurationManager.AppSettings["Accreditations"]"><h6>Accreditations</h6></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li id="construction-services-nav-btn" class="nav-item dropdown-hover">
+                    <a class="nav-link dropdown-hover-button nav-item-1" href="@ConfigurationManager.AppSettings["ConstructionServices"]">Construction <i class="fas fa-caret-down"></i> <span class="sr-only">(current)</span></a>
+                    <ul class="dropdown-hover-content row">
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["AggregateServices"]" id="aggregate-services-nav-btn"><h4>Aggregates</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="aggregate-supplies-sub-nav-item" href="@ConfigurationManager.AppSettings["AggregateSupply"]"><h6>Aggregate Supplies</h6></a>
+                                    <ul class="dropdown-sub-item">
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-primary"> <p>Primary Aggregates</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-recycled"><p>Recyled Aggregates</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-decorative"><p>Decorative Aggregates</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-bulk-bags"><p>Bulk Bags</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["AggregateSupply"]#aggregates-bagged-cement"><p>Bagged Cemenet</p></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["Locations"]"><h6>Aggregate Collection</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["AggregateCalculator"]"><h6>Aggregate Calculator</h6></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["MaterialRemovalServices"]" id="material-removal-services-nav-btn"><h4>Material Removal</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="muckaway-nav-btn" href="@ConfigurationManager.AppSettings["Muckaway"]"><h6>Muckaway</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="site-clearance-nav-btn" href="@ConfigurationManager.AppSettings["SiteClearance"]"><h6>Site Clearance</h6></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["EarthworkServices"]" id="earthworks-services-nav-btn"><h4>Earthworks</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["SurveyingAndEngineering"]" id="surveying-and-engineering-nav-btn"><h6>Surveying and Engineering</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="earthworks-nav-btn" href="@ConfigurationManager.AppSettings["Earthworks"]"><h6>Bulk Earthworks</h6></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["RecyclingServices"]" id="recycling-services-nav-btn"><h4>Recycling</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="recycling-nav-btn" href="@ConfigurationManager.AppSettings["MaterialRecycling"]"><h6>Material Recyling</h6></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li id="haulage-services-nav-btn" class="nav-item dropdown-hover">
+                    <a class="nav-link dropdown-hover-button nav-item-1" href="@ConfigurationManager.AppSettings["HaulageServices"]">Haulage <i class="fas fa-caret-down"></i> <span class="sr-only">(current)</span></a>
+                    <ul class="dropdown-hover-content row">
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["RoadHaulageServices"]" id="road-haulage-services-nav-btn"><h4>Road Haulage</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="grab-hire-nav-btn" href="@ConfigurationManager.AppSettings["GrabHire"]"><h6>Grab Hire</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="tipper-hire-nav-btn" href="@ConfigurationManager.AppSettings["TipperHire"]"><h6>Tipper Hire</h6></a>
+                                    <ul class="dropdown-sub-item">
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["TipperHire"]#tipper-8-wheel-steel-body"><p>8 Wheel Steel Body</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["TipperHire"]#tipper-8-wheel-insulated-body"><p>8 Wheel Insulated Body</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["TipperHire"]#tipper-artic-bulker-hire"><p>Artic Bulker Hire</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["TipperHire"]#tipper-artic-steel-body"><p>Artic Steel Body</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["TipperHire"]#tipper-artic-insulated-body"><p>Artic Insulated Body</p></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["RailHaulageServices"]" id="rail-haulage-services-nav-btn"><h4>Rail Haulage</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="rail-haulage-nav-btn" href="@ConfigurationManager.AppSettings["Railheads"]"><h6>Railheads</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["AggregateSupply"]"><h6>Aggregate Supplies</h6></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["NonTippingConveyorFloor"]" id="non-tipping-conveyor-floor-nav-btn"><h4>Non Tipping Conveyor Floor</h4></a>
+                            <hr />
+                        </li>
+                        <li class="dropdown-item-section col-xl-2 col-12">
+                            <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["PlantServices"]" id="plant-services-nav-btn"><h4>Plant Services</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" id="low-loader-nav-btn" href="@ConfigurationManager.AppSettings["LowLoader"]"><h6>Low Loader Hire</h6></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["PlantHire"]" id="plant-hire-nav-btn"><h6>Plant Hire</h6></a>
+                                    <ul class="dropdown-sub-item">
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["PlantHire"]?plant-type=3-way-screener"><p>3 Way Screener</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["PlantHire"]?plant-type=jaw-crusher"><p>Jaw Crusher</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["PlantHire"]?plant-type=wheel-loader"><p>Wheel Loader</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["PlantHire"]?plant-type=22-tonne-excavator"><p>22 Tonne Excavator</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["PlantHire"]?plant-type=bulldozer"><p>Bulldozer - GPS Equipped</p></a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item dropdown-item-3" href="@ConfigurationManager.AppSettings["PlantHire"]?plant-type=articulated-dump-truck"><p>Articulated Dump Truck</p></a>
+                                        </li>
+                                        @*<li>
+                                            <a class="dropdown-item dropdown-item-2 text-danger" href="/haulage/tipper-hire/bulk-haulage"><ps>Bulk Road Haulage</ps></a>
+                                        </li>*@
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li id="projects-nav-btn" class="nav-item dropdown-hover">
+                    <a class="nav-link dropdown-hover-button nav-item-1" href="/projects">Projects <i class="fas fa-caret-down"></i> <span class="sr-only">(current)</span></a>
+                    <div class="dropdown-hover-content small-dropdown-hover-content">
+                         <div class="small-dropdown-items-container">
+                             <a class="dropdown-main-item dropdown-item-1" href="@ConfigurationManager.AppSettings["Projects"]" id="projects-nav-btn"><h4>Projects</h4></a>
+                            <hr />
+                            <ul>
+                                <li>
+                                    <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["AirportProjects"]" id="airport-project-nav-btn"><h6>Airport Projects</h6></a>
+                                </li>
+                            </ul>
+                         </div>
+                    </div>
+                </li>
+                <li id="locations-nav-btn" class="nav-item dropdown-hover">
+                    <a class="nav-link dropdown-hover-button nav-item-1" href="@ConfigurationManager.AppSettings["Locations"]" id="locations-nav-btn">Our Locations <i class="fas fa-caret-down"></i> <span class="sr-only">(current)</span></a>
+                    <ul class="dropdown-hover-content small-dropdown-hover-content">
+                        <li>
+                            <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["LocationRoudham"]"><h6>Roudham, Norfolk</h6></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["LocationBrandon"]"><h6>Brandon, Suffolk</h6></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item dropdown-item-2" href="@ConfigurationManager.AppSettings["LocationLakenheath"]"><h6>Lakenheath, Suffolk</h6></a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="responsibilities-nav-btn"  class="nav-item">
+                    <a class="nav-link nav-item-1" href="@ConfigurationManager.AppSettings["Responsibilities"]">Responsibilities</a>
+                </li>
+                <li id="news-nav-btn"  class="nav-item">
+                    <a class="nav-link nav-item-1" href="@ConfigurationManager.AppSettings["News"]">News</a>
+                </li>
+                <li id="careers-nav-btn" class="nav-item">
+                    <a class="nav-link nav-item-1" href="@ConfigurationManager.AppSettings["Careers"]">Careers</a>
+                </li>
+                <li id="contact-nav-btn"  class="nav-item ">
+                    <a class="nav-link nav-item-1" href="@ConfigurationManager.AppSettings["Contact"]">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- display on xs, sm, md and lg -->
+        <!--<div class="navbar-nav ml-auto d-block d-xl-none">
+            <div class="nav-item mx-2 active">
+                <a class="nav-link" href="#">Link 1</a>
+            </div>
+            <div class="nav-item mx-2">
+                <a class="nav-link" href="#">Link 2</a>
+            </div>
+            <div class="nav-item mx-2">
+                <a class="nav-link" href="#">Link 3</a>
+            </div>
+            <div class="nav-item mx-2">
+                <a class="nav-link" href="#">Link 4</a>
+            </div>
+            <div class="nav-item mx-2">
+                <a class="nav-link" href="#">Link 5</a>
+            </div>
+        </div>-->
+    </div>
+</nav>

@@ -1,0 +1,110 @@
+﻿/*blue styling*/ /*ENUMVAL 2*/
+.style-2 {
+    background-color: var(--blue) !important;
+}
+.style-2 .style-heading {
+    color: white !important;
+}
+.style-2 .style-text {
+    color: var(--light-light-blue) !important;
+}
+    .style-2 .style-btn {
+        background-color:white!important;
+        color: var(--dark)!important;
+        border-color: var(--dark)!important;
+    }
+    .style-2 a:not(.btn){
+        color:white;
+    }
+.style-2 .style-hr {
+    border-top: 1px solid rgba(255,255,255,.3) !important;
+}
+.style-2 .style-img {
+    border: 1px solid rgba(255,255,255,.4) !important;
+}
+/*light blue styling*/ /*ENUM VAL 3*/
+.style-3 {
+    background-color: var(--light-light-blue) !important;
+}
+    .style-3 .style-heading {
+        color: var(--dark) !important;
+    }
+    .style-3 .style-text {
+        color: var(--dark-blue) !important;
+    }
+    .style-3 .style-btn {
+        color: white !important;
+        border-color: var(--blue)!important;
+        background-color: var(--blue)!important;
+    }
+    .style-3 .style-hr {
+        border-top: 1px solid rgba(0,0,0,.2) !important;
+    }
+    .style-3 .style-img {
+        border: 1px solid rgba(0,0,0,.4) !important;
+    }
+/*dark styling*/ /*ENUM VAL 4*/
+.style-4 {
+    background-color: var(--dark) !important;
+}
+    .style-4 .style-heading {
+        color: white !important;
+    }
+    .style-4 .style-text {
+        color: var(--light-light-grey)!important;
+    }
+    .style-4 .style-btn {
+        background-color: var(--light-light-grey) !important;
+        color:var(--dark)!important;
+        border-color:white!important;
+    }
+    .style-4 .style-hr {
+        border-top: var(--white-hr) !important;
+    }
+    .snippet.style-4 img {
+        border: 1px solid rgba(255,255,255,.4) !important;
+    }
+/*white styling*/  /*ENUM VAL 5*/
+.style-5 {
+    background-color: white !important;
+}
+    .style-5 .style-img  {
+        border: 1px solid rgba(0,0,0,.4) !important;
+    }
+/*light-grey styling*/ /*ENUM VAL 6*/
+.style-6 {
+    background-color: var(--light-light-grey) !important;
+}
+    .style-6 .style-img {
+        border: 1px solid rgba(0,0,0,.4) !important;
+    }
+.style-6 .style-btn {
+    color: white !important;
+    background-color: var(--blue) !important;
+    border-color: var(--blue) !important;
+}
+/*dark red styling*/ /*ENUMVAL 7*/
+.style-7 {
+    background-color: var(--dark-red) !important;
+}
+    .style-7 .style-heading {
+        color: white !important;
+    }
+    .style-7 .style-text {
+        color: var(--light-light-red) !important;
+    }
+.style-7 a:not(.btn) {
+    color: white;
+}
+    .style-7 .style-btn {
+        color: var(--dark-red) !important;
+        background-color: white!important;
+        border-color: white!important;
+    }
+    .style-7 .style-hr {
+        border-top: var(--white-hr) !important;
+    }
+    .style-7 .style-img {
+        border: 1px solid rgba(255,255,255,.4) !important;
+    }
+
